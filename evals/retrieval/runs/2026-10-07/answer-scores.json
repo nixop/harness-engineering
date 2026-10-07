@@ -1,0 +1,122 @@
+{
+ "en01": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en02": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en03": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en04": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en05": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en06": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 1,
+  "retrieval-eval-minilm-ml": 1
+ },
+ "en07": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en08": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en09": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en10": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en11": {
+  "retrieval-eval-bge-m3": 1,
+  "retrieval-eval-minilm-l6": 1,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "en12": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru01": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru02": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru03": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 1
+ },
+ "ru04": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru05": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 0
+ },
+ "ru06": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 0,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru07": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru08": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru09": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru10": {
+  "retrieval-eval-bge-m3": 1,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ },
+ "ru11": {
+  "retrieval-eval-bge-m3": 1,
+  "retrieval-eval-minilm-l6": 1,
+  "retrieval-eval-minilm-ml": 1
+ },
+ "ru12": {
+  "retrieval-eval-bge-m3": 2,
+  "retrieval-eval-minilm-l6": 2,
+  "retrieval-eval-minilm-ml": 2
+ }
+}

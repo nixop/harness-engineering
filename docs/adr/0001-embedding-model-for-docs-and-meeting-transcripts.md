@@ -167,6 +167,25 @@ The decision reduces to bge-m3 versus Qwen3-Embedding-0.6B. Everything else is e
 - **Harder:** the same model must produce the same vectors on a laptop and in the cluster. That is a serving concern and is handled in TASK-0001 and ADR-0002, but it exists because of this decision.
 - **Revisit triggers:** (1) our own Russian-to-English retrieval numbers show Qwen3-Embedding-0.6B ahead by a clear margin; (2) a GPU budget appears that makes the 4B class viable; (3) a new sub-1B multilingual model with published ruMTEB numbers above bge-m3 and first-party Ollama support ships; (4) the corpus grows to the point where vector storage or ANN latency is a cost, which is when MRL truncation starts to pay. Check the MTEB leaderboard and ruMTEB when any of these happens, not on a schedule.
 
+## Validation (2026-10-07, TASK-0003)
+
+The decision was checked against the two MiniLM models the lab names, on the abox sandbox (branch `feat/llmd-embeddings`, 4-core Codespace), with the same 270 chunks of Kubernetes manifests indexed three times and the same 24 questions (12 English, 12 Russian) asked three ways. Raw retrieval was measured on the MCP `find` tool without an LLM; answer quality was measured through a kagent agent (gpt-5.4-mini) with one vector tool and a prompt that forbids translating the question. Full traces, scores and notes: `evals/retrieval/runs/2026-10-07/`.
+
+| Embedder | Served by | Dims | RU hit@1 | RU hit@5 | EN hit@1 | EN hit@5 | Agent answers correct (RU / EN / all) | Peak RSS |
+|---|---|---|---|---|---|---|---|---|
+| **bge-m3** (chosen) | llama.cpp + branch `qdrant-mcp` | 1024 | **0.67** | **0.92** | **0.92** | 1.0 | **92% / 96% / 94%** | 1.4 GiB (llama.cpp) + 54 MiB (MCP) |
+| all-MiniLM-L6-v2 (English-only) | official MCP, FastEmbed in-process | 384 | 0.58 | 0.83 | 0.83 | 1.0 | 88% / 92% / 90% | 2.0 GiB |
+| paraphrase-multilingual-MiniLM-L12-v2 | official MCP, FastEmbed in-process | 384 | 0.58 | 0.92 | 0.50 | 1.0 | 83% / 96% / 90% | 2.7 GiB, **OOMKilled once at 3Gi** |
+
+What the numbers say:
+
+- **bge-m3 is the best retriever on both languages**, and the only one that is good at both: hit@1 0.67 on Russian and 0.92 on English. The multilingual MiniLM pays for its Russian with English (hit@1 0.50); the English-only MiniLM is weaker on Russian but not catastrophically so, because the questions carry Latin identifiers (Phoenix, kagent, llm-d) that it can match.
+- **At the answer level the gap narrows to a few points** (94% vs 90% vs 90%): the agent reads five to ten chunks and a strong LLM recovers from a weak first hit. On a 270-chunk corpus any of the three is usable. The embedder's quality shows up in hit@1, in latency to a correct answer, and in how often the agent gives up ("not found" on ru06 for the English-only model, wrong rewrite on ru05 for the multilingual one).
+- **Operationally the official MCP is the expensive part, not the model.** Embedding in-process with FastEmbed cost 2.0 and 2.7 GiB peak for two 384-dim models, and the multilingual one was OOMKilled at a 3Gi limit under ingest plus concurrent queries, losing 17 of 24 agent runs. The branch's MCP that delegates to llama.cpp stays at 54 MiB, and bge-m3 under llama.cpp sits at 1.4 GiB with no restarts, serving 1024-dim vectors with an 8K window. This confirms the branch author's reason for replacing the official server.
+- **Chunking was sized for the weakest model** (350 characters, under the multilingual MiniLM's 128-token window), so bge-m3's long-context advantage was not exercised at all. The gap in favour of bge-m3 is a floor, not a ceiling.
+
+Verdict: the decision stands. The named alternative for a future re-evaluation remains Qwen3-Embedding-0.6B, not either MiniLM.
+
 ## Follow-ups
 
 - [TASK-0001](../../tasks/0001-run-bge-m3-locally.md): run the model locally on macOS / Linux with llama.cpp (recommended) or Ollama.
