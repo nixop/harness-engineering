@@ -8,6 +8,7 @@ This directory holds the ADRs for the harness-engineering lab. One file per deci
 |---|---|---|---|
 | [ADR-0001](0001-embedding-model-for-docs-and-meeting-transcripts.md) | Embedding model for English project docs and Russian meeting transcripts | Proposed | 2026-10-05 |
 | [ADR-0002](0002-embedding-server-deployment-topology.md) | Deployment topology for the embedding server in the cluster (standalone / sidecar / llm-d) | Proposed | 2026-10-06 |
+| [ADR-0003](0003-agent-memory-structure.md) | Structure of agent memory: claims in a vector layer plus a graph layer with supersession | Accepted | 2026-10-08 |
 
 ## Conventions
 

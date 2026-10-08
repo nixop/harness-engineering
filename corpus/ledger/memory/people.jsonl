@@ -1,0 +1,5 @@
+{"name":"Dasha Volkova","aliases":["даша","dasha"],"role":"backend lead","owns":["tariff schema v2","idempotency keys","retry policy (from 2026-09-21)"]}
+{"name":"Oleg Prikhodko","aliases":["олег","oleg"],"role":"platform / gateway","owns":["Edge gateway migration","gateway timeout policy","cutover runbook","retry policy (until 2026-09-21)"]}
+{"name":"Marat Yusupov","aliases":["марат","marat"],"role":"product owner","owns":["programme coordination","decision log"]}
+{"name":"Irina Belova","aliases":["ира","irina","ирина"],"role":"SRE","owns":["SLOs","error budget","cutover rollback (from 2026-10-02)"]}
+{"name":"Tim Horvat","aliases":["тим","tim"],"role":"finance systems","owns":["finance export mapping","legacy_code confirmation"],"joined":"2026-09-07"}

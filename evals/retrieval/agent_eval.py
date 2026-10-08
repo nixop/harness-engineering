@@ -47,7 +47,8 @@ if __name__ == "__main__":
                 s["raw"] = d
             except Exception as e:
                 s, secs = {"state": "error", "answer": str(e)[:500], "calls": [], "history_len": 0}, 0
-            rec = {"id": q["id"], "lang": q["lang"], "agent": agent, "q": q["q"], "expect": q["expect"],
+            rec = {"id": q["id"], "lang": q["lang"], "agent": agent, "q": q["q"],
+                   "expect": q.get("expect", {"sources": q.get("sources", [])}), "class": q.get("class", ""),
                    "expected_answer": q["answer"], "secs": secs, **s}
             f.write(json.dumps(rec, ensure_ascii=False) + "\n"); f.flush()
             print(f"{q['id']} {agent} {s['state']} {secs}s calls={len([c for c in s['calls'] if 'tool' in c])} | {s['answer'][:90]}", file=sys.stderr)

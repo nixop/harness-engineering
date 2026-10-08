@@ -1,0 +1,112 @@
+{
+ "q01": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q02": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q03": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q04": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 1,
+  "memory-eval-vector": 2
+ },
+ "q05": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q06": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q07": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 2
+ },
+ "q08": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 2
+ },
+ "q09": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 2
+ },
+ "q10": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q11": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 1,
+  "memory-eval-vector": 2
+ },
+ "q12": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 2
+ },
+ "q13": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 1,
+  "memory-eval-vector": 2
+ },
+ "q14": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q15": {
+  "memory-eval-both": 1,
+  "memory-eval-graph": 1,
+  "memory-eval-vector": 2
+ },
+ "q16": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 1,
+  "memory-eval-vector": 2
+ },
+ "q17": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q18": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q19": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 2,
+  "memory-eval-vector": 2
+ },
+ "q20": {
+  "memory-eval-both": 0,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 0
+ },
+ "q21": {
+  "memory-eval-both": 0,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 2
+ },
+ "q22": {
+  "memory-eval-both": 2,
+  "memory-eval-graph": 0,
+  "memory-eval-vector": 2
+ }
+}

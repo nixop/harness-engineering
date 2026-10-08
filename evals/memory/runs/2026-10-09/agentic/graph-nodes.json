@@ -1,0 +1,1322 @@
+[
+  {
+    "date": null,
+    "key": "person:Dasha Volkova",
+    "label": "DPerson",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "decision:charge-availability:2026-08-27",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": "active",
+    "text": "POST /charge availability objective is 99.9% monthly.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "decision:charge:2026-08-27",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": "active",
+    "text": "POST /charge latency objective is 200 ms p95 over 5 minutes.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-12",
+    "key": "decision:charge:2026-09-12",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/idempotency.md",
+    "status": "active",
+    "text": "To make POST /charge safe to retry, callers send an Idempotency-Key header: a UUID chosen by the caller per logical charge. Ledger stores the key with the charge for 24 hours. A second request with the same key returns the original charge id and does not bill again.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "decision:charge:2026-09-21",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Ретраи на charge: максимум два повтора.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "decision:charge:2026-09-21:ownership",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Политика ретраев для charge переходит от Олега к Даше с 2026-09-21.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-28",
+    "key": "decision:cutover:2026-09-28",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-28-ledger-sync.txt",
+    "status": "active",
+    "text": "Катовер девятого октября.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-09",
+    "key": "decision:cutover:2026-10-09",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/runbook-cutover.md",
+    "status": "active",
+    "text": "Cutover of Ledger traffic from the nginx front to the Edge gateway.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-24",
+    "key": "decision:gateway-timeout:2026-08-24",
+    "label": "Decision",
+    "name": null,
+    "source": "confluence/decision-log.xhtml",
+    "status": "active",
+    "text": "Gateway upstream timeout 5 s on all Ledger routes.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-24",
+    "key": "decision:gateway-timeout:2026-08-24#2",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-08-24-ledger-sync.txt",
+    "status": "active",
+    "text": "на новом гейтвее пять секунд на все роуты ledger",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-31",
+    "key": "decision:gateway-timeout:2026-08-31",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-08-31-ledger-sync.txt",
+    "status": "active",
+    "text": "таймаут пять секунд внесен в gateway md",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-07",
+    "key": "decision:gateway-timeout:2026-09-07",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-07-ledger-sync.txt",
+    "status": "active",
+    "text": "по гейтвею стейджинг переведен таймаут пять секунд работает",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-14",
+    "key": "decision:gateway-timeout:2026-09-14",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-14-ledger-sync.txt",
+    "status": "active",
+    "text": "фиксируем таймаут пятнадцать секунд временно пересмотр через две недели олег владелец",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-28",
+    "key": "decision:gateway-timeout:2026-09-28",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-28-ledger-sync.txt",
+    "status": "superseded",
+    "text": "Таймаут десять секунд с бюджетом ретраев двадцать процентов.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-02",
+    "key": "decision:gateway-timeout:2026-10-02",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-10-02-ledger-sync.txt",
+    "status": "active",
+    "text": "политика на проде таймаут 10 секунд, ретраи 2, бюджет 20, ранбук в доке",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-20",
+    "key": "decision:gateway:2026-08-20",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/overview.md",
+    "status": "active",
+    "text": "Move ledger-api behind the Edge gateway instead of the old nginx front.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "decision:gateway:2026-08-27",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": "active",
+    "text": "Ledger SLOs are measured at the gateway.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-31",
+    "key": "decision:idempotency:2026-08-31",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-08-31-ledger-sync.txt",
+    "status": "active",
+    "text": "пока нет ключей идемпотентности, ретраи на charge нельзя",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-07",
+    "key": "decision:idempotency:2026-09-07",
+    "label": "Decision",
+    "name": null,
+    "source": "confluence/decision-log.xhtml",
+    "status": "active",
+    "text": "Idempotency keys become mandatory on /charge from 2026-09-15, two-week grace period.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-12",
+    "key": "decision:idempotency:2026-09-12",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/idempotency.md",
+    "status": "active",
+    "text": "The key is required from 2026-09-15. Requests without it are rejected with 400 after a two-week grace period during which they are only logged.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-12",
+    "key": "decision:idempotency:2026-09-12:body-mismatch",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/idempotency.md",
+    "status": "active",
+    "text": "A request with a known key but a different body returns 409.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "decision:idempotency:2026-09-21",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Ключи идемпотентности с 2026-09-15 обязательны; все четыре сервиса их шлют, нулевой процент без ключа.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "decision:invoice:2026-08-27",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": "active",
+    "text": "GET /invoice/* latency objective is 800 ms p95.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-31",
+    "key": "decision:retries:2026-08-31",
+    "label": "Decision",
+    "name": null,
+    "source": "confluence/decision-log.xhtml",
+    "status": "active",
+    "text": "No retries on /ledger/charge until idempotency is in place. Retry policy owned by Oleg.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "decision:retries:2026-09-21",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Бюджет ретраев для charge: 20%.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-20",
+    "key": "decision:slo:2026-08-20",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/overview.md",
+    "status": "active",
+    "text": "Formal SLOs and an error budget.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-24",
+    "key": "decision:slo:2026-08-24",
+    "label": "Decision",
+    "name": null,
+    "source": "confluence/decision-log.xhtml",
+    "status": "active",
+    "text": "POST /charge p95 latency SLO 200 ms.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-31",
+    "key": "decision:slo:2026-08-31",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-08-31-ledger-sync.txt",
+    "status": "active",
+    "text": "200 ms p95, три девятки, половина бюджета ошибок под плановые работы",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-07",
+    "key": "decision:tariffs-legacy-code-exports:2026-09-07",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-07-ledger-sync.txt",
+    "status": "active",
+    "text": "в v2 добавляю поле legacy code обязательное и экспорт пишет его а не новый код",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-20",
+    "key": "decision:tariffs:2026-08-20",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/overview.md",
+    "status": "active",
+    "text": "Replace the tariff schema with v2.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-24",
+    "key": "decision:tariffs:2026-08-24",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-08-24-ledger-sync.txt",
+    "status": "active",
+    "text": "схема v2 разделяем цены и метаданные продукта плюс тиры",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "decision:tariffs:2026-08-27",
+    "label": "Decision",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": "active",
+    "text": "GET /tariffs latency objective is 100 ms p95.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-07",
+    "key": "decision:tariffs:2026-09-07",
+    "label": "Decision",
+    "name": null,
+    "source": "confluence/decision-log.xhtml",
+    "status": "active",
+    "text": "Tariff v2 keeps legacy_code for the finance export; the field is mandatory.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "decision:tariffs:2026-09-21",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Мэппинг кодов у финансов в тесте на следующей неделе.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-02",
+    "key": "decision:tariffs:2026-10-02",
+    "label": "Decision",
+    "name": null,
+    "source": "meetings/2026-10-02-ledger-sync.txt",
+    "status": "active",
+    "text": "Поле пока оставляем",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:confluence/decision-log.xhtml",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:confluence/ledger-architecture.xhtml",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:confluence/tariff-migration-plan.xhtml",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:docs/idempotency.md",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:docs/overview.md",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:docs/runbook-cutover.md",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:docs/slo.md",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:docs/tariffs-v2.md",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-08-24-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-08-31-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-09-07-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-09-14-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-09-21-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-09-28-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "document:meetings/2026-10-02-ledger-sync.txt",
+    "label": "Document",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "commitment:charge:2026-09-12:gateway-retries-after-keys",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "Once every caller sends keys, the gateway can enable retries on /ledger/charge; see the gateway policy for the retry limit and budget.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-10",
+    "key": "docs/tariffs-v2.md#c1",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/tariffs-v2.md",
+    "status": null,
+    "text": "The v1 tariff table mixed pricing with product metadata and could not express tiered pricing. v2 separates the two and adds tiers.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-10",
+    "key": "docs/tariffs-v2.md#c2",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/tariffs-v2.md",
+    "status": null,
+    "text": "Finance systems reconcile charges by the v1 tariff code. Until the finance warehouse is migrated, every v2 tariff carries its v1 code in legacy_code, and finance-export writes legacy_code, not code, into the CSV. This field was added after the finance review on 2026-09-07 and is mandatory.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-10",
+    "key": "docs/tariffs-v2.md#c3",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/tariffs-v2.md",
+    "status": null,
+    "text": "1. Create the v2 tables alongside v1.\n2. Backfill v2 from v1 with a script; tiers are generated from the single v1 price as one tier starting at 0 units.\n3. Dual-write for two weeks.\n4. Switch reads to v2; drop v1 after one billing cycle.\n\nA dry run of the backfill against a copy of production data is required before step 2. The dry run has not been scheduled yet.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "fact:availability-errors:2026-08-27",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": null,
+    "text": "HTTP 5xx from Ledger and gateway timeouts both count against availability.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "fact:availability-exclusions:2026-08-27",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": null,
+    "text": "Client errors (4xx) do not count against availability.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:charge-flow:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "A caller posts a charge through the gateway.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:charge-slo-2026-10-02",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "SLO 200 ms на charge остается после катовера; измеряем на гейтвее",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:charge-system-of-record:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "Ledger is the system of record for customer charges.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:charge:2026-09-12:second-request-original-id",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "A second request with the same key returns the original charge id and does not bill again.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:charge:2026-09-12:stores-key-24h",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "Ledger stores the Idempotency-Key with the charge for 24 hours.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:deployment-shape:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "This page describes the deployment shape.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:deployment-topology:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "Two replicas of ledger-api behind the nginx front (to be replaced by the Edge gateway), one ledger-worker, PostgreSQL 16 with a streaming replica.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "fact:feature-freeze-after-budget:2026-08-27",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": null,
+    "text": "If the operational budget is spent, feature work on Ledger stops until the next month.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:finance-export:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "finance-export reads yesterday's charges at 06:00 and writes a CSV keyed by the legacy tariff code to the finance warehouse.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:idempotency:2026-09-12:scoped-per-caller",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "Keys are scoped per caller (X-Caller), so two services can use the same UUID without colliding.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:idempotency:2026-09-12:uuid-per-logical-charge",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "Callers send an Idempotency-Key header: a UUID chosen by the caller per logical charge.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:legacy-code-2026-10-02",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "Коды у финансов в проде с 1 октября; можно планировать уход от legacy code, но не раньше ноября",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "fact:planned-work-budget:2026-08-27",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": null,
+    "text": "Half of the downtime budget is reserved for planned work such as the gateway cutover; the other half is the operational budget.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "fact:retry-counting:2026-08-27",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": null,
+    "text": "A request that succeeds only after a retry counts as one success and one error.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:rollback-owner-2026-10-02",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "Ира берет откат как дежурство",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "fact:slo-downtime:2026-08-27",
+    "label": "Fact",
+    "name": null,
+    "source": "docs/slo.md",
+    "status": null,
+    "text": "99.9% availability leaves 43 minutes of downtime per month.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:tariff-validation:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "ledger-api validates the tariff code against the catalogue and inserts the charge.",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:tariffs:2026-09-14:1",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "по мэппингу кодов у нас начали делать ориентир конец сентября",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:tariffs:2026-09-14:2",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "схема v2 выложена в доке legacy code там есть",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "fact:tim-export-reconciliation:2026-09-07",
+    "label": "Fact",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": "нам нужно чтобы в экспорте оставался старый код пока мы не перестроим мэппинг у себя это месяц два",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "fact:worker-schedule:2026-08-29",
+    "label": "Fact",
+    "name": null,
+    "source": "confluence/ledger-architecture.xhtml",
+    "status": null,
+    "text": "The worker runs invoice generation at 02:00 and tariff recalculation at 03:00.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-20",
+    "key": "meeting:2026-08-20",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-24",
+    "key": "meeting:2026-08-24",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-27",
+    "key": "meeting:2026-08-27",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-29",
+    "key": "meeting:2026-08-29",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-31",
+    "key": "meeting:2026-08-31",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-07",
+    "key": "meeting:2026-09-07",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-09",
+    "key": "meeting:2026-09-09",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-12",
+    "key": "meeting:2026-09-12",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-14",
+    "key": "meeting:2026-09-14",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-16",
+    "key": "meeting:2026-09-16",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "meeting:2026-09-21",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-28",
+    "key": "meeting:2026-09-28",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-02",
+    "key": "meeting:2026-10-02",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-09",
+    "key": "meeting:2026-10-09",
+    "label": "Meeting",
+    "name": null,
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-09",
+    "key": "openitem:cutover:2026-10-09",
+    "label": "OpenItem",
+    "name": null,
+    "source": "docs/runbook-cutover.md",
+    "status": "active",
+    "text": "Rollback owner: TBD.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-14",
+    "key": "openitem:gateway-timeout:2026-09-14",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-09-14-ledger-sync.txt",
+    "status": "active",
+    "text": "временно но с датой пересмотра",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "openitem:gateway-timeout:2026-09-21",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Таймаут: 15 секунд; пересмотр на следующей неделе.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-24",
+    "key": "openitem:retries:2026-08-24",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-08-24-ledger-sync.txt",
+    "status": "active",
+    "text": "ретраи на гейтвее пока не включать; charge не идемпотентный",
+    "unresolved": null
+  },
+  {
+    "date": "2026-08-31",
+    "key": "openitem:tariffs:2026-08-31",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-08-31-ledger-sync.txt",
+    "status": "open",
+    "text": "dry run миграции тарифов на копии прода до бэкфила без владельца",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-07",
+    "key": "openitem:tariffs:2026-09-07",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-09-07-ledger-sync.txt",
+    "status": "open",
+    "text": "дрy ран миграции тарифов кто нибудь взял?",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-09",
+    "key": "openitem:tariffs:2026-09-09",
+    "label": "OpenItem",
+    "name": null,
+    "source": "confluence/decision-log.xhtml",
+    "status": "open",
+    "text": "tariff migration dry run on a copy of production data — no owner yet.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-21",
+    "key": "openitem:tariffs:2026-09-21",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-09-21-ledger-sync.txt",
+    "status": "active",
+    "text": "Драй ран миграции?",
+    "unresolved": null
+  },
+  {
+    "date": "2026-09-28",
+    "key": "openitem:tariffs:2026-09-28",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-09-28-ledger-sync.txt",
+    "status": "open",
+    "text": "Бэкфил готов, dual write можно включать, но dry run не сделан.",
+    "unresolved": null
+  },
+  {
+    "date": "2026-10-02",
+    "key": "openitem:tariffs:2026-10-02",
+    "label": "OpenItem",
+    "name": null,
+    "source": "meetings/2026-10-02-ledger-sync.txt",
+    "status": "active",
+    "text": "Dry run миграции на копии прода",
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Dasha Volkova",
+    "label": "Person",
+    "name": "Dasha Volkova",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Dasha-Volkova",
+    "label": "Person",
+    "name": "Dasha Volkova",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Irina Belova",
+    "label": "Person",
+    "name": "Irina Belova",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Irina-Belova",
+    "label": "Person",
+    "name": "Irina Belova",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Marat Yusupov",
+    "label": "Person",
+    "name": "Marat Yusupov",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Marat-Yusupov",
+    "label": "Person",
+    "name": "Marat Yusupov",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Oleg Prikhodko",
+    "label": "Person",
+    "name": "Oleg Prikhodko",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Oleg-Prikhodko",
+    "label": "Person",
+    "name": "Oleg Prikhodko",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Tim Horvat",
+    "label": "Person",
+    "name": "Tim Horvat",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:Tim-Horvat",
+    "label": "Person",
+    "name": "Tim Horvat",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:dasha-volkova",
+    "label": "Person",
+    "name": "Dasha Volkova",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:irina-belova",
+    "label": "Person",
+    "name": "Irina Belova",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:marat-yusupov",
+    "label": "Person",
+    "name": "Marat Yusupov",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "person:oleg-prikhodko",
+    "label": "Person",
+    "name": "Oleg Prikhodko",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "charge",
+    "label": "Topic",
+    "name": "charge",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "cutover",
+    "label": "Topic",
+    "name": "cutover",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "deployment",
+    "label": "Topic",
+    "name": "deployment",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "finance-export",
+    "label": "Topic",
+    "name": "finance export",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "gateway",
+    "label": "Topic",
+    "name": "gateway",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "gateway-timeout",
+    "label": "Topic",
+    "name": "gateway-timeout",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "idempotency",
+    "label": "Topic",
+    "name": "idempotency",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "invoice",
+    "label": "Topic",
+    "name": "invoice",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "retries",
+    "label": "Topic",
+    "name": "retries",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "slo",
+    "label": "Topic",
+    "name": "slo",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "tariffs",
+    "label": "Topic",
+    "name": "tariffs",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "topic:charge",
+    "label": "Topic",
+    "name": "charge",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "topic:gateway-timeout",
+    "label": "Topic",
+    "name": "gateway-timeout",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "topic:idempotency",
+    "label": "Topic",
+    "name": "idempotency",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "topic:retries",
+    "label": "Topic",
+    "name": "retries",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "topic:slo",
+    "label": "Topic",
+    "name": "slo",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  },
+  {
+    "date": null,
+    "key": "topic:tariffs",
+    "label": "Topic",
+    "name": "tariffs",
+    "source": null,
+    "status": null,
+    "text": null,
+    "unresolved": null
+  }
+]

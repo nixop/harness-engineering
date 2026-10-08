@@ -1,0 +1,18 @@
+<!-- Confluence storage format -->
+<!-- space: LEDGER, title: Tariff v2 migration plan, version: 3, last updated: 2026-09-16 by Dasha Volkova -->
+<ac:structured-macro ac:name="toc" ac:schema-version="1" />
+<h1>Tariff v2 migration plan</h1>
+<ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Yellow</ac:parameter><ac:parameter ac:name="title">IN PROGRESS</ac:parameter></ac:structured-macro>
+<h2>Phases</h2>
+<table><tbody>
+<tr><th>Phase</th><th>What</th><th>Owner</th><th>Target</th></tr>
+<tr><td>0</td><td>Dry run of the backfill script against a production snapshot; compare row counts and sums per <code>legacy_code</code> with the finance export.</td><td><strong>TBD</strong></td><td>before phase 1</td></tr>
+<tr><td>1</td><td>Create v2 tables, backfill from v1.</td><td>Dasha</td><td>2026-09-23</td></tr>
+<tr><td>2</td><td>Dual-write v1 and v2 for two weeks.</td><td>Dasha</td><td>2026-10-07</td></tr>
+<tr><td>3</td><td>Switch reads to v2. Must not coincide with the gateway cutover week.</td><td>Dasha, Oleg</td><td>after cutover</td></tr>
+<tr><td>4</td><td>Drop v1 after one billing cycle.</td><td>Dasha</td><td>November</td></tr>
+</tbody></table>
+<h2>Finance dependency</h2>
+<p>The finance warehouse reconciles by the v1 code. <code>finance-export</code> keeps writing <code>legacy_code</code> until finance confirms their mapping is live; Tim Horvat owns that confirmation.</p>
+<ac:structured-macro ac:name="warning" ac:schema-version="1"><ac:rich-text-body><p>Phase 0 has no owner. Phase 1 is blocked on it.</p></ac:rich-text-body></ac:structured-macro>
+<ac:structured-macro ac:name="jira" ac:schema-version="1"><ac:parameter ac:name="key">LED-431</ac:parameter></ac:structured-macro>

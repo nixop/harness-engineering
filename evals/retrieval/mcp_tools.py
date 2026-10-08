@@ -82,9 +82,31 @@ async def cmd_find(url, find_tool, qpath, out, k):
                 print(f"{q['id']} {rec['ms']}ms", file=sys.stderr)
     await with_session(url, go)
 
+async def cmd_cypher(url, path, tool="write-cypher"):
+    """Run every ';'-terminated statement of a Cypher file through the neo4j MCP."""
+    stmts = [x.strip() for x in open(path, encoding="utf-8").read().split(";\n") if x.strip()]
+    async def go(s):
+        ok = 0
+        for i, st in enumerate(stmts):
+            res = await s.call_tool(tool, {"query": st})
+            if is_err(res):
+                print(f"[{i}] ERROR {text_of(res)[:300]}\n    {st[:160]}", file=sys.stderr)
+            else:
+                ok += 1
+        print(json.dumps({"ok": ok, "total": len(stmts)}))
+    await with_session(url, go)
+
+async def cmd_call(url, tool, args_json):
+    async def go(s):
+        res = await s.call_tool(tool, json.loads(args_json))
+        print(text_of(res))
+    await with_session(url, go)
+
 if __name__ == "__main__":
     a = sys.argv[1:]
-    if a[0] == "tools": asyncio.run(cmd_tools(a[1]))
+    if a[0] == "cypher": asyncio.run(cmd_cypher(a[1], a[2], a[3] if len(a) > 3 else "write-cypher"))
+    elif a[0] == "call": asyncio.run(cmd_call(a[1], a[2], a[3]))
+    elif a[0] == "tools": asyncio.run(cmd_tools(a[1]))
     elif a[0] == "ingest":
         limit = int(a[a.index("--limit")+1]) if "--limit" in a else 0
         asyncio.run(cmd_ingest(a[1], a[2], a[3], limit))

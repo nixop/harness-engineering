@@ -1,0 +1,1460 @@
+[
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-24",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-24",
+    "from_key": "person:oleg-prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-08-24",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-24#2",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-24#2",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-24",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-24",
+    "from_key": "person:oleg-prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-08-24#2",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:slo",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-24",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-24",
+    "from_key": "person:irina-belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:slo:2026-08-24",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-24",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-24",
+    "from_key": "person:dasha-volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-08-24",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:retries:2026-08-24",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "topic:retries",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:retries:2026-08-24",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-08-24",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:retries:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "retries",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:retries:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-31",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-31",
+    "from_key": "person:Marat-Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:retries:2026-08-31",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "idempotency",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-31",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-31",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:idempotency:2026-08-31",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-31",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-31",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-08-31",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-08-31",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-08-31",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-08-31",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "slo",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-31",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-31",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:slo:2026-08-31",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-07",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-07",
+    "from_key": "person:Marat-Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-09-07",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "idempotency",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-07",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-07",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:idempotency:2026-09-07",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-07",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-07",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-09-07",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs-legacy-code-exports:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs-legacy-code-exports:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-07",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-07",
+    "from_key": "person:Tim-Horvat",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs-legacy-code-exports:2026-09-07",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-07",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-07",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-09-07",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-14",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-14",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-14",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-14",
+    "from_key": "person:Oleg Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-09-14",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": "2026-09-14",
+    "from_key": "person:Marat Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-09-14",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:gateway-timeout:2026-09-14",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:gateway-timeout:2026-09-14",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-09-14",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:retries:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:retries",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:retries:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-21",
+    "from_key": "person:Irina Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:retries:2026-09-21",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-21",
+    "from_key": "person:Oleg Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:charge:2026-09-21",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:idempotency",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-21",
+    "from_key": "person:Marat Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:idempotency:2026-09-21",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-09-21:ownership",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-09-21:ownership",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-21",
+    "from_key": "person:Marat Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:charge:2026-09-21:ownership",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "topic:tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-09-21",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-21",
+    "from_key": "person:Tim Horvat",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-09-21",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-21",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "topic:tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-21",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:gateway-timeout:2026-09-21",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "topic:gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:gateway-timeout:2026-09-21",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-09-21",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-28",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-28",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-09-28",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:cutover:2026-09-28",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "cutover",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:cutover:2026-09-28",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-28",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-28",
+    "from_key": "person:Marat-Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:cutover:2026-09-28",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-28",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-28",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-28",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-28",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-09-28",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-09-28",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-09-28",
+    "to_label": "Decision",
+    "type": "SUPERSEDES"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-10-02",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-10-02",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-10-02",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-10-02",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-10-02",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-10-02",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-10-02",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-10-02",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-10-02",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-10-02",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-10-02",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-10-02",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-10-02",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-09-12",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-09-12",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-12",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-12",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:charge:2026-09-12",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-12",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "idempotency",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-12",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-12",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-12",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:idempotency:2026-09-12",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-12:body-mismatch",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "idempotency",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-12:body-mismatch",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-09-12",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-09-12",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:idempotency:2026-09-12:body-mismatch",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-08-20",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-08-20",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-20",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-20",
+    "from_key": "person:Marat-Yusupov",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-08-20",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway:2026-08-20",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway:2026-08-20",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-20",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-20",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway:2026-08-20",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": "2026-08-20",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-08-20",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-20",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "slo",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-20",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-20",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-20",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:slo:2026-08-20",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:cutover:2026-10-09",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "cutover",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:cutover:2026-10-09",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-10-09",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/runbook-cutover.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "openitem:cutover:2026-10-09",
+    "to_label": "OpenItem",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-09-30",
+    "from_key": "person:oleg-prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "cutover",
+    "to_label": "Topic",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/runbook-cutover.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "cutover",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:cutover:2026-10-09",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "cutover",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:cutover:2026-10-09",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-10-09",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-10-09",
+    "from_key": "person:oleg-prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:cutover:2026-10-09",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/runbook-cutover.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "decision:cutover:2026-10-09",
+    "to_label": "Decision",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-27",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-27",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway:2026-08-27",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-27",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-27",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:charge:2026-08-27",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge-availability:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:charge-availability:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-27",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-27",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:charge-availability:2026-08-27",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:invoice:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "invoice",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:invoice:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-27",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-27",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:invoice:2026-08-27",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-08-27",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "meeting:2026-08-27",
+    "to_label": "Meeting",
+    "type": "DECIDED_IN"
+  },
+  {
+    "from_date": "2026-08-27",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-08-27",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/slo.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "slo",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/slo.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "cutover",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/slo.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/slo.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "retries",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "document:docs/tariffs-v2.md",
+    "from_label": "Document",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-09-10",
+    "from_key": "person:dasha-volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "docs/tariffs-v2.md#c1",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "docs/tariffs-v2.md#c2",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "docs/tariffs-v2.md#c3",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:idempotency:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "document:confluence/decision-log.xhtml",
+    "to_label": "Document",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-09",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-09",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "meeting:2026-09-09",
+    "to_label": "Meeting",
+    "type": "RAISED_IN"
+  },
+  {
+    "from_date": null,
+    "from_key": "openitem:tariffs:2026-09-09",
+    "from_label": "OpenItem",
+    "to_date": null,
+    "to_key": "document:confluence/decision-log.xhtml",
+    "to_label": "Document",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-08-24",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:gateway-timeout:2026-08-24",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "gateway-timeout",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:gateway-timeout:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "document:confluence/decision-log.xhtml",
+    "to_label": "Document",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-08-24",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:slo:2026-08-24",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "slo",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:slo:2026-08-24",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "document:confluence/decision-log.xhtml",
+    "to_label": "Document",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-08-31",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:retries:2026-08-31",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:retries:2026-08-31",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "document:confluence/decision-log.xhtml",
+    "to_label": "Document",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-09-07",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-09-07",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": "2026-09-07",
+    "from_key": "person:Tim-Horvat",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "decision:tariffs:2026-09-07",
+    "to_label": "Decision",
+    "type": "OWNS"
+  },
+  {
+    "from_date": null,
+    "from_key": "decision:tariffs:2026-09-07",
+    "from_label": "Decision",
+    "to_date": null,
+    "to_key": "document:confluence/decision-log.xhtml",
+    "to_label": "Document",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:charge-system-of-record:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:deployment-shape:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "deployment",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:deployment-topology:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "deployment",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:worker-schedule:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "deployment",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:charge-flow:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "charge",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:tariff-validation:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": null,
+    "from_key": "fact:finance-export:2026-08-29",
+    "from_label": "Fact",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "ABOUT"
+  },
+  {
+    "from_date": "2026-08-29",
+    "from_key": "person:Dasha-Volkova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "tariffs",
+    "to_label": "Topic",
+    "type": "OWNS"
+  },
+  {
+    "from_date": "2026-08-29",
+    "from_key": "person:Oleg-Prikhodko",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "gateway",
+    "to_label": "Topic",
+    "type": "OWNS"
+  },
+  {
+    "from_date": "2026-08-29",
+    "from_key": "person:Irina-Belova",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "slo",
+    "to_label": "Topic",
+    "type": "OWNS"
+  },
+  {
+    "from_date": "2026-08-29",
+    "from_key": "person:Tim-Horvat",
+    "from_label": "Person",
+    "to_date": null,
+    "to_key": "finance-export",
+    "to_label": "Topic",
+    "type": "OWNS"
+  }
+]

@@ -1,0 +1,13 @@
+<!-- Confluence storage format -->
+<!-- space: LEDGER, title: Decision log, version: 4, last updated: 2026-09-09 by Marat Yusupov -->
+<ac:structured-macro ac:name="info" ac:schema-version="1"><ac:rich-text-body><p>Decisions from the weekly Ledger sync. Newest first. This page is updated after the meeting; if it disagrees with the recording, the recording wins.</p></ac:rich-text-body></ac:structured-macro>
+<h1>Decision log</h1>
+<table><tbody>
+<tr><th>Date</th><th>Decision</th><th>Owner</th><th>Status</th></tr>
+<tr><td>2026-09-07</td><td>Idempotency keys become mandatory on <code>/charge</code> from 2026-09-15, two-week grace period.</td><td>Dasha</td><td><ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Green</ac:parameter><ac:parameter ac:name="title">DONE</ac:parameter></ac:structured-macro></td></tr>
+<tr><td>2026-09-07</td><td>Tariff v2 keeps <code>legacy_code</code> for the finance export; the field is mandatory.</td><td>Dasha, Tim</td><td><ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Green</ac:parameter><ac:parameter ac:name="title">DONE</ac:parameter></ac:structured-macro></td></tr>
+<tr><td>2026-08-31</td><td>No retries on <code>/ledger/charge</code> until idempotency is in place. Retry policy owned by Oleg.</td><td>Oleg</td><td><ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Blue</ac:parameter><ac:parameter ac:name="title">ACTIVE</ac:parameter></ac:structured-macro></td></tr>
+<tr><td>2026-08-24</td><td>Gateway upstream timeout 5 s on all Ledger routes.</td><td>Oleg</td><td><ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Blue</ac:parameter><ac:parameter ac:name="title">ACTIVE</ac:parameter></ac:structured-macro></td></tr>
+<tr><td>2026-08-24</td><td><code>POST /charge</code> p95 latency SLO 200 ms.</td><td>Irina</td><td><ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Blue</ac:parameter><ac:parameter ac:name="title">ACTIVE</ac:parameter></ac:structured-macro></td></tr>
+</tbody></table>
+<p><em>Open items:</em> tariff migration dry run on a copy of production data &mdash; no owner yet.</p>

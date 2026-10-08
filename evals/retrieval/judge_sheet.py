@@ -14,7 +14,7 @@ from collections import defaultdict
 
 def load(runs):
     out = {}
-    for f in sorted(glob.glob(os.path.join(runs, "agent-retrieval-eval-*.jsonl"))):
+    for f in sorted(glob.glob(os.path.join(runs, "agent-*.jsonl"))):
         agent = os.path.basename(f)[len("agent-"):-len(".jsonl")]
         out[agent] = {json.loads(l)["id"]: json.loads(l) for l in open(f, encoding="utf-8")}
     return out
@@ -25,7 +25,7 @@ def render(runs):
     qids = sorted(next(iter(data.values())).keys())
     for q in qids:
         r0 = data[agents[0]][q]
-        print(f"\n## {q} [{r0['lang']}] {r0['q']}\n**expected:** {r0['expected_answer']}  \n**expected object:** {r0['expect']}")
+        print(f"\n## {q} [{r0['lang']}{(' / ' + r0['class']) if r0.get('class') else ''}] {r0['q']}\n**expected:** {r0['expected_answer']}  \n**expected sources:** {r0['expect']}")
         for a in agents:
             r = data[a][q]
             tools = [c for c in r["calls"] if "tool" in c]
@@ -38,14 +38,14 @@ def summarize(runs, scores_path):
     for q, by in scores.items():
         for a, s in by.items():
             r = data[a][q]
-            for lang in (r["lang"], "all"):
+            for lang in (r["lang"], "all") + ((r["class"],) if r.get("class") else ()):
                 x = agg[a][lang]; x["n"] += 1; x["sum"] += s; x["full"] += int(s == 2); x["zero"] += int(s == 0)
                 x["calls"] += len([c for c in r["calls"] if "tool" in c]); x["secs"] += r["secs"]
-    print(f"{'agent':<26} {'lang':<4} {'n':>3} {'score%':>7} {'correct':>8} {'wrong':>6} {'calls':>6} {'secs':>5}")
+    print(f"{'agent':<26} {'slice':<13} {'n':>3} {'score%':>7} {'correct':>8} {'wrong':>6} {'calls':>6} {'secs':>5}")
     for a, by in agg.items():
-        for lang in ("en", "ru", "all"):
+        for lang in ("en", "ru", "fact", "temporal", "attribution", "contradiction", "unowned", "crosslingual", "all"):
             x = by.get(lang)
-            if x: print(f"{a:<26} {lang:<4} {x['n']:>3} {100*x['sum']/(2*x['n']):>6.0f}% {x['full']:>8} {x['zero']:>6} {x['calls']/x['n']:>6.1f} {x['secs']/x['n']:>5.1f}")
+            if x: print(f"{a:<26} {lang:<13} {x['n']:>3} {100*x['sum']/(2*x['n']):>6.0f}% {x['full']:>8} {x['zero']:>6} {x['calls']/x['n']:>6.1f} {x['secs']/x['n']:>5.1f}")
 
 if __name__ == "__main__":
     if sys.argv[1] == "render": render(sys.argv[2])

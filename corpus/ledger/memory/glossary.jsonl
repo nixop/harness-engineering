@@ -1,0 +1,14 @@
+{"canonical":"gateway timeout","aliases":["таймаут","таймаут на гейтвее","upstream timeout","timeout"],"topic":"gateway timeout"}
+{"canonical":"retry budget","aliases":["бюджет ретраев","бюджет повторов","retry-budget"],"topic":"retries"}
+{"canonical":"retries","aliases":["ретраи","повторы","retry policy","политика ретраев"],"topic":"retries"}
+{"canonical":"Edge gateway","aliases":["гейтвей","edge","gateway","новый гейтвей"],"topic":"gateway"}
+{"canonical":"idempotency key","aliases":["ключ идемпотентности","ключи идемпотентности","idempotency-key","идемпотентность"],"topic":"idempotency"}
+{"canonical":"tariff schema v2","aliases":["тарифы v2","схема v2","схема тарифов","tariffs v2"],"topic":"tariffs"}
+{"canonical":"legacy_code","aliases":["legacy код","легаси код","старый код","старые коды","v1 code"],"topic":"tariffs"}
+{"canonical":"dry run","aliases":["дрy ран","драй ран","dry-run","прогон на копии прода"],"topic":"tariffs"}
+{"canonical":"cutover","aliases":["катовер","переезд","переключение","cut-over"],"topic":"cutover"}
+{"canonical":"rollback","aliases":["откат"],"topic":"cutover"}
+{"canonical":"SLO","aliases":["sло","сло","слo","slo"],"topic":"slo"}
+{"canonical":"error budget","aliases":["бюджет ошибок","бюджет плановых работ"],"topic":"slo"}
+{"canonical":"finance export","aliases":["экспорт в хранилище","экспорт","finance-export","сверка"],"topic":"tariffs"}
+{"canonical":"POST /charge","aliases":["charge","чардж","списание","списания"],"topic":"charge"}
