@@ -1,0 +1,155 @@
+{
+ "dkey": {
+  "D01": "decision:iac:2026-01-12",
+  "D02": "decision:slo:2026-01-26",
+  "D29": "decision:cost:2026-02-09",
+  "D03": "decision:iac:2026-02-09",
+  "D04": "decision:iac:2026-02-23",
+  "D05": "decision:gateway:2026-03-02",
+  "D06": "decision:timeouts:2026-03-16",
+  "D30": "decision:security:2026-03-23",
+  "D07": "decision:retries:2026-03-30",
+  "D08": "decision:database:2026-04-06",
+  "D09": "decision:iac:2026-04-20",
+  "D10": "decision:database:2026-05-04",
+  "D11": "decision:idempotency:2026-05-18",
+  "D12": "decision:timeouts:2026-05-18",
+  "D13": "decision:ownership:2026-06-01",
+  "D14": "decision:retries:2026-06-15",
+  "D15": "decision:compute:2026-06-15",
+  "D16": "decision:ownership:2026-07-13",
+  "D17": "decision:compute:2026-08-03:d17",
+  "D18": "decision:compute:2026-08-03:d18",
+  "D19": "decision:database:2026-08-10",
+  "D20": "decision:timeouts:2026-08-24",
+  "D21": "decision:retries:2026-08-24",
+  "D22": "decision:ownership:2026-09-07",
+  "D23": "decision:security:2026-09-07",
+  "D24": "decision:cost:2026-09-21",
+  "D25": "decision:cutover:2026-10-05:d25",
+  "D26": "decision:database:2026-10-05",
+  "D27": "decision:cutover:2026-10-05:d27",
+  "D28": "decision:slo:2026-10-05"
+ },
+ "spans": {
+  "retries": [
+   [
+    "nikita",
+    "2026-03-30",
+    "2026-06-01"
+   ],
+   [
+    "anna",
+    "2026-06-01",
+    "2026-09-07"
+   ],
+   [
+    "ivan",
+    "2026-09-07",
+    null
+   ]
+  ],
+  "compute": [
+   [
+    "sergey",
+    "2026-06-15",
+    "2026-07-13"
+   ],
+   [
+    "ivan",
+    "2026-07-13",
+    null
+   ]
+  ],
+  "iac": [
+   [
+    "pavel",
+    "2026-01-12",
+    null
+   ]
+  ],
+  "gateway": [
+   [
+    "pavel",
+    "2026-03-02",
+    null
+   ]
+  ],
+  "database": [
+   [
+    "denis",
+    "2026-04-06",
+    null
+   ]
+  ],
+  "slo": [
+   [
+    "lena",
+    "2026-01-26",
+    null
+   ]
+  ],
+  "security": [
+   [
+    "yulia",
+    "2026-03-23",
+    null
+   ]
+  ],
+  "cost": [
+   [
+    "olga",
+    "2026-02-09",
+    null
+   ]
+  ],
+  "idempotency": [
+   [
+    "nikita",
+    "2026-05-18",
+    "2026-06-01"
+   ],
+   [
+    "anna",
+    "2026-06-01",
+    null
+   ]
+  ]
+ },
+ "files": {
+  "m-2026-01-12": "meetings/2026-01-12-weekly-sync.txt",
+  "m-2026-01-19": "meetings/2026-01-19-weekly-sync.txt",
+  "m-2026-01-26": "meetings/2026-01-26-weekly-sync.txt",
+  "m-2026-02-02": "meetings/2026-02-02-weekly-sync.txt",
+  "m-2026-02-09": "meetings/2026-02-09-weekly-sync.txt",
+  "m-2026-02-23-incident": "meetings/2026-02-23-incident-review.txt",
+  "m-2026-03-02": "meetings/2026-03-02-weekly-sync.txt",
+  "m-2026-03-16": "meetings/2026-03-16-weekly-sync.txt",
+  "m-2026-03-23": "meetings/2026-03-23-weekly-sync.txt",
+  "m-2026-03-30": "meetings/2026-03-30-weekly-sync.txt",
+  "m-2026-04-06": "meetings/2026-04-06-weekly-sync.txt",
+  "m-2026-04-13": "meetings/2026-04-13-weekly-sync.txt",
+  "m-2026-04-20": "meetings/2026-04-20-weekly-sync.txt",
+  "m-2026-04-27": "meetings/2026-04-27-weekly-sync.txt",
+  "m-2026-05-04-poc": "meetings/2026-05-04-poc-review.txt",
+  "m-2026-05-11": "meetings/2026-05-11-weekly-sync.txt",
+  "m-2026-05-18": "meetings/2026-05-18-weekly-sync.txt",
+  "m-2026-06-01": "meetings/2026-06-01-weekly-sync.txt",
+  "m-2026-06-08": "meetings/2026-06-08-weekly-sync.txt",
+  "m-2026-06-15": "meetings/2026-06-15-weekly-sync.txt",
+  "m-2026-06-29": "meetings/2026-06-29-weekly-sync.txt",
+  "m-2026-07-06": "meetings/2026-07-06-weekly-sync.txt",
+  "m-2026-07-13": "meetings/2026-07-13-weekly-sync.txt",
+  "m-2026-07-20": "meetings/2026-07-20-weekly-sync.txt",
+  "m-2026-07-27-poc": "meetings/2026-07-27-poc-review.txt",
+  "m-2026-08-03-arch": "meetings/2026-08-03-architecture-committee.txt",
+  "m-2026-08-10": "meetings/2026-08-10-weekly-sync.txt",
+  "m-2026-08-17": "meetings/2026-08-17-weekly-sync.txt",
+  "m-2026-08-24": "meetings/2026-08-24-weekly-sync.txt",
+  "m-2026-09-07-security": "meetings/2026-09-07-security-review.txt",
+  "m-2026-09-14": "meetings/2026-09-14-weekly-sync.txt",
+  "m-2026-09-21": "meetings/2026-09-21-weekly-sync.txt",
+  "m-2026-09-28": "meetings/2026-09-28-weekly-sync.txt",
+  "m-2026-10-05-cutover": "meetings/2026-10-05-cutover-planning.txt"
+ }
+}

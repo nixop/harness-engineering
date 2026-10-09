@@ -1,0 +1,36 @@
+{"file": "docs/overview.md", "title": "Relay service overview", "updated": "2026-01-20", "owner": "Anna Sokolova", "exists": true}
+{"file": "docs/iac-cloudformation.md", "title": "CloudFormation migration guide", "updated": "2026-02-11", "owner": "Pavel Grishin", "stale": [{"decision": "D09", "since": "2026-04-20", "fact": "says all infrastructure including networking moves to CloudFormation"}], "exists": true}
+{"file": "docs/iac-hybrid.md", "title": "Hybrid IaC layout", "updated": "2026-04-24", "owner": "Sergey Belov", "exists": true}
+{"file": "docs/drift-detection.md", "title": "Drift detection and change freeze", "updated": "2026-02-25", "owner": "Lena Kim", "exists": true}
+{"file": "docs/gateway.md", "title": "API gateway integration", "updated": "2026-03-18", "owner": "Pavel Grishin", "stale": [{"decision": "D12", "since": "2026-05-18", "fact": "says the integration timeout is 10 s"}, {"decision": "D14", "since": "2026-06-15", "fact": "says retries are disabled on /deliver"}, {"decision": "D21", "since": "2026-08-24", "fact": "describes gateway retries at all"}], "exists": true}
+{"file": "docs/gateway-auth.md", "title": "Gateway authentication", "updated": "2026-03-25", "owner": "Yulia Tarasova", "exists": true}
+{"file": "docs/idempotency.md", "title": "Idempotency keys on /deliver", "updated": "2026-05-20", "owner": "Nikita Frolov", "exists": true}
+{"file": "docs/slo.md", "title": "Relay SLOs", "updated": "2026-01-28", "owner": "Lena Kim", "stale": [{"decision": "D28", "since": "2026-10-05", "fact": "says p95 2 s with no stabilisation window"}], "exists": true}
+{"file": "docs/documentdb-runbook.md", "title": "DocumentDB operations runbook", "updated": "2026-02-02", "owner": "Denis Orlov", "stale": [{"decision": "D26", "since": "2026-10-05", "fact": "describes DocumentDB as the system of record"}], "exists": true}
+{"file": "docs/dynamodb-data-model.md", "title": "DynamoDB single-table data model", "updated": "2026-05-12", "owner": "Denis Orlov", "exists": true}
+{"file": "docs/db-migration-plan.md", "title": "DocumentDB to DynamoDB migration plan", "updated": "2026-05-26", "owner": "Denis Orlov", "stale": [{"decision": "D19", "since": "2026-08-10", "fact": "says the dry run has no owner"}, {"decision": "D26", "since": "2026-10-05", "fact": "has no cutover date"}], "exists": true}
+{"file": "docs/poc-dynamodb-report.md", "title": "PoC-1 report: DynamoDB designs", "updated": "2026-05-01", "owner": "Denis Orlov", "exists": true}
+{"file": "docs/poc-eks-report.md", "title": "PoC-2 report: Relay on EKS", "updated": "2026-07-24", "owner": "Timur Aliev", "exists": true}
+{"file": "docs/poc-lambda-report.md", "title": "PoC-3 report: Relay on Lambda", "updated": "2026-07-24", "owner": "Ivan Melnik", "exists": true}
+{"file": "docs/serverless-architecture.md", "title": "Serverless architecture", "updated": "2026-08-12", "owner": "Ivan Melnik", "exists": true}
+{"file": "docs/retries-dlq.md", "title": "Delivery retries through SQS and the DLQ", "updated": "2026-08-27", "owner": "Ivan Melnik", "exists": true}
+{"file": "docs/secrets.md", "title": "Secrets handling", "updated": "2026-09-10", "owner": "Yulia Tarasova", "exists": true}
+{"file": "docs/cost-model.md", "title": "Relay cost model", "updated": "2026-09-23", "owner": "Olga Petrova", "exists": true}
+{"file": "docs/runbook-cutover-serverless.md", "title": "Serverless cutover runbook", "updated": "2026-09-29", "owner": "Ivan Melnik", "stale": [{"decision": "D27", "since": "2026-10-05", "fact": "says rollback owner TBD"}, {"decision": "D25", "since": "2026-10-05", "fact": "has no cutover date"}], "exists": true}
+{"file": "docs/runbook-rollback.md", "title": "Rollback runbook", "updated": "2026-09-24", "owner": "Lena Kim", "exists": true}
+{"file": "docs/onboarding.md", "title": "Team onboarding", "updated": "2026-03-10", "owner": "Marat Yusupov", "stale": [{"decision": "D13", "since": "2026-06-01", "fact": "lists Nikita as retries owner and does not list Sergey or Ivan"}], "exists": true}
+{"file": "docs/load-testing.md", "title": "Load testing guide", "updated": "2026-07-15", "owner": "Lena Kim", "exists": true}
+{"file": "confluence/architecture.xhtml", "title": "Relay architecture", "updated": "2026-03-12", "owner": "Timur Aliev", "stale": [{"decision": "D17", "since": "2026-08-03", "fact": "shows EKS as the runtime"}, {"decision": "D10", "since": "2026-05-04", "fact": "shows DocumentDB"}], "exists": true}
+{"file": "confluence/decision-log.xhtml", "title": "Decision log", "updated": "2026-06-03", "owner": "Marat Yusupov", "stale": [{"decision": "D14", "since": "2026-06-15", "fact": "stops at 2026-06-01"}], "exists": true}
+{"file": "confluence/team-roster.xhtml", "title": "Team roster and ownership", "updated": "2026-07-08", "owner": "Marat Yusupov", "stale": [{"decision": "D22", "since": "2026-09-07", "fact": "lists Anna as retries owner"}], "exists": true}
+{"file": "confluence/migration-roadmap.xhtml", "title": "2026 migration roadmap", "updated": "2026-06-20", "owner": "Marat Yusupov", "stale": [{"decision": "D17", "since": "2026-08-03", "fact": "lists compute decision as pending PoC"}], "exists": true}
+{"file": "adr/ADR-001.md", "title": "ADR-001: Migrate infrastructure code from Terraform to CloudFormation", "updated": "2026-01-14", "owner": "Pavel Grishin", "status": "Superseded", "exists": true}
+{"file": "adr/ADR-002.md", "title": "ADR-002: Front Relay with the API gateway", "updated": "2026-03-04", "owner": "Pavel Grishin", "status": "Accepted", "exists": true}
+{"file": "adr/ADR-003.md", "title": "ADR-003: Replace DocumentDB with DynamoDB using a single-table design", "updated": "2026-05-06", "owner": "Denis Orlov", "status": "Accepted", "exists": true}
+{"file": "adr/ADR-004.md", "title": "ADR-004: Hybrid IaC: Terraform for networking, CloudFormation for application stacks", "updated": "2026-04-22", "owner": "Sergey Belov", "status": "Accepted", "exists": true}
+{"file": "adr/ADR-005.md", "title": "ADR-005: Evaluate EKS and Lambda with two proofs of concept", "updated": "2026-06-17", "owner": "Timur Aliev", "status": "Superseded", "exists": true}
+{"file": "adr/ADR-006.md", "title": "ADR-006: Run Relay on Lambda with provisioned concurrency", "updated": "2026-08-05", "owner": "Ivan Melnik", "status": "Accepted", "exists": true}
+{"file": "adr/ADR-007.md", "title": "ADR-007: Keep Relay on EKS with autoscaling", "updated": "2026-08-05", "owner": "Timur Aliev", "status": "Rejected", "exists": true}
+{"file": "adr/ADR-008.md", "title": "ADR-008: Secrets from SSM Parameter Store", "updated": "2026-09-09", "owner": "Yulia Tarasova", "status": "Accepted", "exists": true}
+{"file": "adr/ADR-009.md", "title": "ADR-009: Retries through SQS with a dead-letter queue", "updated": "2026-08-26", "owner": "Ivan Melnik", "status": "Accepted", "exists": true}
+{"file": "adr/ADR-010.md", "title": "ADR-010: Gateway timeout policy for Lambda integrations", "updated": "2026-09-23", "owner": "Ivan Melnik", "status": "Proposed", "exists": true}

@@ -1,0 +1,20 @@
+{"canonical": "infrastructure as code", "aliases": ["терраформ", "terraform", "клаудформейшн", "cloudformation", "cfn", "стеки", "стек", "iac"], "topic": "iac"}
+{"canonical": "API gateway", "aliases": ["гейтвей", "gateway", "апи гейтвей", "api gateway", "шлюз"], "topic": "gateway"}
+{"canonical": "gateway timeout", "aliases": ["таймаут", "таймауты", "timeout", "integration timeout"], "topic": "timeouts"}
+{"canonical": "retries", "aliases": ["ретраи", "повторы", "retry", "retries", "длк", "dlq", "дед леттер"], "topic": "retries"}
+{"canonical": "idempotency", "aliases": ["идемпотентность", "idempotency key", "ключ идемпотентности"], "topic": "idempotency"}
+{"canonical": "database", "aliases": ["документ дб", "documentdb", "динамо", "dynamodb", "dynamo", "база", "миграция базы", "single table", "синглтейбл"], "topic": "database"}
+{"canonical": "compute platform", "aliases": ["куб", "кубер", "кубернетес", "kubernetes", "eks", "лямбда", "lambda", "серверлес", "serverless", "пок", "poc"], "topic": "compute"}
+{"canonical": "SLO", "aliases": ["сло", "slo", "p95", "бюджет ошибок", "error budget"], "topic": "slo"}
+{"canonical": "cost", "aliases": ["стоимость", "косты", "бюджет", "cost", "finops", "теги", "cost center"], "topic": "cost"}
+{"canonical": "security", "aliases": ["секреты", "secrets", "ssm", "параметр стор", "parameter store", "ротация"], "topic": "security"}
+{"canonical": "cutover", "aliases": ["катовер", "переключение", "переезд", "cutover", "откат", "rollback", "ранбук", "runbook"], "topic": "cutover"}
+{"canonical": "ownership", "aliases": ["владелец", "владение", "owner", "ownership", "передача"], "topic": "ownership"}
+{"canonical": "provisioned concurrency", "aliases": ["провижнд конкаренси", "прогретые лямбды", "прогрев", "provisioned"], "topic": "compute"}
+{"canonical": "cold start", "aliases": ["холодный старт", "колд старт", "cold start"], "topic": "compute"}
+{"canonical": "single-table design", "aliases": ["сингл тейбл", "одна таблица", "single table"], "topic": "database"}
+{"canonical": "drift detection", "aliases": ["дрифт", "дрифт детекшн", "расхождение стека"], "topic": "iac"}
+{"canonical": "dead-letter queue", "aliases": ["дед леттер", "dlq", "длк", "очередь ошибок"], "topic": "retries"}
+{"canonical": "retry budget", "aliases": ["бюджет ретраев", "бюджет повторов"], "topic": "retries"}
+{"canonical": "integration timeout", "aliases": ["интеграционный таймаут", "таймаут интеграции", "таймаут на гейтвее"], "topic": "timeouts"}
+{"canonical": "nested stack", "aliases": ["нестед стек", "вложенный стек"], "topic": "iac"}

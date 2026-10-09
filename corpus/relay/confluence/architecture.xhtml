@@ -1,0 +1,20 @@
+<!-- Confluence storage format -->
+<!-- space: RELAY, title: Relay architecture, version: 5, last updated: 2026-03-12 by Timur Aliev -->
+<ac:structured-macro ac:name="toc" ac:schema-version="1" />
+<ac:structured-macro ac:name="status" ac:schema-version="1"><ac:parameter ac:name="colour">Green</ac:parameter><ac:parameter ac:name="title">CURRENT</ac:parameter></ac:structured-macro>
+<h1>Relay architecture</h1>
+<p>Relay accepts delivery requests from product services and posts signed webhooks to customer endpoints. This page describes the runtime shape; the API is in the repository under <code>docs/overview.md</code>.</p>
+<h2>Runtime</h2>
+<p><code>relay-api</code> (3 replicas) and <code>relay-worker</code> (6 replicas) run on the shared <strong>EKS</strong> cluster. Callers reach the API through the API gateway since March 2026. The system of record is <strong>DocumentDB</strong> (<code>relay-prod-docdb</code>, one writer, two readers).</p>
+<ac:structured-macro ac:name="drawio" ac:schema-version="1"><ac:parameter ac:name="diagramName">relay-runtime</ac:parameter></ac:structured-macro>
+<h2>Infrastructure code</h2>
+<p>Application stacks are CloudFormation (<code>relay-&lt;env&gt;</code> root with nested stacks); the networking module is being moved last. See <ac:link><ri:page ri:content-title="CloudFormation migration guide" /></ac:link>.</p>
+<h2>Contacts</h2>
+<table><tbody>
+<tr><th>Area</th><th>Owner</th></tr>
+<tr><td>Core</td><td><ac:link><ri:user ri:account-id="anna.sokolova" /></ac:link></td></tr>
+<tr><td>Platform, gateway</td><td><ac:link><ri:user ri:account-id="pavel.grishin" /></ac:link></td></tr>
+<tr><td>Data</td><td><ac:link><ri:user ri:account-id="denis.orlov" /></ac:link></td></tr>
+<tr><td>Architecture</td><td><ac:link><ri:user ri:account-id="timur.aliev" /></ac:link></td></tr>
+</tbody></table>
+<ac:structured-macro ac:name="jira" ac:schema-version="1"><ac:parameter ac:name="key">REL-204</ac:parameter></ac:structured-macro>

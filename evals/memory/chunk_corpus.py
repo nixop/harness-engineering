@@ -37,15 +37,27 @@ def md_sections(body):
     if cur: out.append((title, "\n".join(cur).strip()))
     return [(t, b) for t, b in out if b]
 
+def adr_meta(body):
+    """ADRs have no front matter; read title/status/date/author from the generated header."""
+    t = re.search(r"^# (.*)$", body, re.M); st = re.search(r"\*\*Status:\*\* (.*)", body)
+    d = re.search(r"\*\*Date:\*\* (\S+)", body); a = re.search(r"\*\*Author:\*\* (.*)", body)
+    return {"title": t.group(1) if t else "", "status": st.group(1) if st else "", "updated": d.group(1) if d else "", "owner": a.group(1) if a else ""}
+
 def do_docs(root):
-    for fn in sorted(os.listdir(os.path.join(root, "docs"))):
-        if not fn.endswith(".md"): continue
-        fm, body = front_matter(open(os.path.join(root, "docs", fn), encoding="utf-8").read())
-        for section, text in md_sections(body):
-            header = f"# docs/{fn} | {fm.get('title','')} | {section} | updated {fm.get('updated','')}"
-            print(rec(header + "\n" + text, {"file": f"docs/{fn}", "source": "docs-md", "lang": "en",
-                  "date": fm.get("updated", ""), "doc_title": fm.get("title", ""), "section": section,
-                  "author": fm.get("owner", "")}))
+    for sub in ("docs", "adr"):
+        if not os.path.isdir(os.path.join(root, sub)): continue
+        for fn in sorted(os.listdir(os.path.join(root, sub))):
+            if not fn.endswith(".md") or fn.startswith("."): continue
+            raw = open(os.path.join(root, sub, fn), encoding="utf-8").read()
+            if sub == "docs":
+                fm, body = front_matter(raw)
+            else:
+                fm, body = adr_meta(raw), raw
+            for section, text in md_sections(body):
+                header = f"# {sub}/{fn} | {fm.get('title','')} | {section} | updated {fm.get('updated','')}" + (f" | status {fm['status']}" if fm.get("status") else "")
+                print(rec(header + "\n" + text, {"file": f"{sub}/{fn}", "source": "docs-md" if sub == "docs" else "adr", "lang": "en",
+                      "date": fm.get("updated", ""), "doc_title": fm.get("title", ""), "section": section,
+                      "author": fm.get("owner", ""), "status": fm.get("status", "")}))
 
 def strip_confluence(x):
     x = re.sub(r"<!--.*?-->", "", x, flags=re.S)
@@ -62,7 +74,7 @@ def strip_confluence(x):
 
 def do_confluence(root):
     for fn in sorted(os.listdir(os.path.join(root, "confluence"))):
-        if not fn.endswith(".xhtml"): continue
+        if not fn.endswith(".xhtml") or fn.startswith("."): continue
         raw = open(os.path.join(root, "confluence", fn), encoding="utf-8").read()
         m = re.search(r"title: (.*?), version: (\d+), last updated: (\S+) by (.*?) -->", raw)
         title, updated, author = (m.group(1), m.group(3), m.group(4)) if m else (fn, "", "")
@@ -84,19 +96,20 @@ def do_confluence(root):
 
 def do_meetings(root, window=4, overlap=1):
     for fn in sorted(os.listdir(os.path.join(root, "meetings"))):
-        if not fn.endswith(".txt"): continue
+        if not fn.endswith(".txt") or fn.startswith("."): continue
         lines = open(os.path.join(root, "meetings", fn), encoding="utf-8").read().splitlines()
         head = lines[0]
         date = re.search(r"(\d{4}-\d{2}-\d{2})", fn).group(1)
+        mtitle = head.lstrip("# ").split(",")[0]
         turns = [re.match(r"\[(\d\d:\d\d:\d\d)\] (\S+): (.*)", l) for l in lines[1:]]
         turns = [(m.group(1), m.group(2), m.group(3)) for m in turns if m]
         i = 0
         while i < len(turns):
             w = turns[i:i + window]
             text = "\n".join(f"[{t}] {s}: {x}" for t, s, x in w)
-            header = f"# meetings/{fn} | Ledger sync {date} | {w[0][0]}–{w[-1][0]}"
+            header = f"# meetings/{fn} | {mtitle} {date} | {w[0][0]}–{w[-1][0]}"
             print(rec(header + "\n" + text, {"file": f"meetings/{fn}", "source": "meeting", "lang": "ru",
-                  "date": date, "doc_title": f"Ledger sync {date}", "section": f"{w[0][0]}-{w[-1][0]}",
+                  "date": date, "doc_title": f"{mtitle} {date}", "section": f"{w[0][0]}-{w[-1][0]}",
                   "speakers": sorted({s for _, s, _ in w})}))
             if i + window >= len(turns): break
             i += window - overlap

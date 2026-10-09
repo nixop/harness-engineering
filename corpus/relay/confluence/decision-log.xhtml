@@ -1,0 +1,22 @@
+<!-- Confluence storage format -->
+<!-- space: RELAY, title: Decision log, version: 9, last updated: 2026-06-03 by Marat Yusupov -->
+<ac:structured-macro ac:name="info" ac:schema-version="1"><ac:rich-text-body><p>Decisions from the Relay weekly sync, newest first. Updated after the meeting; if this page disagrees with the recording, the recording wins.</p></ac:rich-text-body></ac:structured-macro>
+<h1>Decision log</h1>
+<table><tbody>
+<tr><th>Date</th><th>Decision</th><th>Owner</th><th>Status</th></tr>
+<tr><td>2026-06-01</td><td>Retries and idempotency ownership moves from Nikita to Anna.</td><td>Anna</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-05-18</td><td>Gateway integration timeout raised from 10 s to 30 s after the slow-target incident.</td><td>Pavel</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-05-18</td><td>Idempotency-Key mandatory on <code>/deliver</code> from 2026-06-01.</td><td>Nikita</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-05-04</td><td>DynamoDB single-table design (ADR-003 accepted).</td><td>Denis</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-04-20</td><td>Hybrid IaC: networking in Terraform, application stacks in CloudFormation (ADR-004, supersedes ADR-001).</td><td>Pavel</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-04-06</td><td>Evaluate DynamoDB with PoC-1.</td><td>Denis</td><td>[DONE]</td></tr>
+<tr><td>2026-03-30</td><td>No retries on <code>/deliver</code> until idempotency keys exist.</td><td>Nikita</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-03-23</td><td>IAM-signed requests on the gateway; shared key retired by 2026-04-30.</td><td>Yulia</td><td>[DONE]</td></tr>
+<tr><td>2026-03-16</td><td>Gateway integration timeout 10 s.</td><td>Pavel</td><td>[SUPERSEDED]</td></tr>
+<tr><td>2026-03-02</td><td>Front Relay with the API gateway (ADR-002).</td><td>Pavel</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-02-23</td><td>Change freeze and nightly drift detection.</td><td>Lena</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-02-09</td><td>One root stack per environment with nested stacks; mandatory cost tags.</td><td>Pavel, Olga</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-01-26</td><td>Delivery SLO p95 2 s, success 99.5%.</td><td>Lena</td><td>[ACTIVE]</td></tr>
+<tr><td>2026-01-12</td><td>Migrate from Terraform to CloudFormation (ADR-001).</td><td>Pavel</td><td>[SUPERSEDED]</td></tr>
+</tbody></table>
+<p><em>Open items:</em> DynamoDB migration dry run on a production snapshot (no owner since 2026-05-04); DocumentDB decommission date (no date).</p>

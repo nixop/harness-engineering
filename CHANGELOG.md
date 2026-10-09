@@ -11,6 +11,7 @@ All notable changes to this lab are recorded here. The format follows [Keep a Ch
 - TASK-0002: deploy bge-m3 in the cluster as a sidecar and via llm-d on abox branch `feat/llmd-embeddings`, with measurements. ([tasks/0002](tasks/0002-deploy-bge-m3-sidecar-and-llmd-in-abox.md))
 - TASK-0003: agentic retrieval comparison on abox, bge-m3 vs all-MiniLM-L6-v2 and paraphrase-multilingual-MiniLM-L12-v2 through the official qdrant MCP. ([tasks/0003](tasks/0003-agentic-retrieval-comparison-abox.md))
 - TASK-0004: agent-memory corpus `corpus/ledger/` (synthetic billing project: EN docs, Confluence pages, RU meeting transcripts, ground-truth decisions and 22 eval questions), evaluation plan and ADR-0003. ([tasks/0004](tasks/0004-agent-memory-corpus-and-eval.md))
+- TASK-0005: Relay corpus `corpus/relay/` generated from `source/timeline.yaml` (34 meetings, 26 docs, 10 ADRs, 30 decisions, 8 open items, 3 PoCs) with `evals/memory/gen/`; 67 questions dominated by multi-hop and aggregate classes. ([tasks/0005](tasks/0005-relay-corpus-scale-eval.md))
 - ADR template and index, task index.
 
 ### Results

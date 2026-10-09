@@ -1,0 +1,141 @@
+# Prose for the generated ADRs. Context / options / consequences are written
+# here; status, dates, supersedes links and the decision text come from
+# timeline.yaml so they cannot drift apart.
+ADR-001:
+  context: >
+    Relay's infrastructure is described in Terraform 0.12 modules that nobody
+    has touched since 2024. The rest of the AWS account is managed with
+    CloudFormation: the deployment pipeline, drift detection and IAM
+    boundaries are all built around stacks. Keeping one service on a
+    different tool means a second pipeline, no drift detection and a
+    separate set of permissions.
+  options:
+    - "Upgrade Terraform in place (cheapest; keeps Relay the odd one out)"
+    - "Move to CloudFormation, importing resources without recreation (chosen)"
+    - "Move to CDK (CloudFormation underneath, but a fourth language in the team)"
+  consequences: >
+    Every module is imported into a stack rather than recreated, networking
+    last because of cross-account peering. Terraform state is kept until the
+    last module moves. The architect's objection is recorded: the migration
+    costs a quarter and CloudFormation handles modules worse than Terraform.
+ADR-002:
+  context: >
+    Callers reach Relay directly through an internal load balancer with a
+    shared API key. We want authentication per caller, per-route timeouts and
+    retries, and one place to see traffic. The account's API gateway already
+    fronts two other services.
+  options:
+    - "Keep the load balancer and add auth in the service"
+    - "Front Relay with the API gateway, routes and policies in the gateway nested stack (chosen)"
+  consequences: >
+    Callers switch from relay.internal to the gateway hostname. Timeouts and
+    retries become gateway policy rather than service code; the values are
+    set in the sections below and may change by later decisions.
+  sections:
+    Timeouts: >
+      The integration timeout on every Relay route is 10 seconds, chosen as a
+      round number above the p99 of POST /deliver at intake (1.8 s).
+    Retries: >
+      Retries are disabled on POST /deliver until idempotency keys exist,
+      because a retried delivery can reach a customer twice. Read routes may
+      retry twice. When retries are enabled they will be governed by a retry
+      budget set in the gateway policy.
+ADR-003:
+  context: >
+    DocumentDB serves Relay's deliveries table. Read p99 has climbed to 9–11 ms
+    at peak and cost grows with volume. Relay has six fixed access patterns.
+    PoC-1 compared a DynamoDB single-table design with a multi-table design on
+    a production-shaped dataset.
+  options:
+    - "Stay on DocumentDB and scale the instance"
+    - "DynamoDB, one table per entity (multi-table)"
+    - "DynamoDB, single-table design with composite keys (chosen)"
+  consequences: >
+    Single-table gave p99 read 4 ms against 11 ms multi-table and 9 ms
+    DocumentDB, and 38% lower cost at projected volume. Every access pattern
+    must be designed up front; a new query means a new index. The architect's
+    objection on query flexibility is recorded. Migration is backfill, dual
+    write, then cutover; a dry run on a production snapshot is required
+    before the backfill.
+ADR-004:
+  context: >
+    Three months into ADR-001, the networking module was the last to move and
+    the hardest: cross-account peering and DNS delegation need custom
+    resources in CloudFormation, while the same networking is already
+    expressed natively in the Terraform the network team maintains for the
+    whole company.
+  options:
+    - "Finish the migration as decided in ADR-001"
+    - "Hybrid: networking stays in Terraform, application stacks in CloudFormation (chosen)"
+  consequences: >
+    Supersedes ADR-001. The boundary is fixed: VPC, peering and DNS in
+    Terraform; data, compute and gateway stacks in CloudFormation. Both sides
+    run drift detection. Terraform state is cleaned of resources already
+    imported into stacks.
+ADR-005:
+  context: >
+    Relay runs on a shared EKS cluster that costs about $6,100 a month, most
+    of it attributable to Relay, and that the platform team does not want to
+    operate. A Lambda-based design has been proposed. Neither side has
+    numbers.
+  options:
+    - "Decide on paper"
+    - "Run two proofs of concept in parallel with the same load profile and decide on cost and p95 (chosen)"
+  consequences: >
+    PoC-2 (EKS with autoscaling) and PoC-3 (Lambda) run from 2026-06-22 to
+    2026-07-24 with identical traffic. Decision criteria: monthly cost at
+    current volume and p95 delivery latency against the 2 s SLO.
+ADR-006:
+  context: >
+    PoC-3 measured p95 1.9 s with provisioned concurrency and 3.4 s without;
+    monthly cost $3,600, 41% below EKS. PoC-2 measured p95 0.4 s at $6,100 and
+    a second platform to operate.
+  options:
+    - "EKS with autoscaling (ADR-007, rejected)"
+    - "Lambda with provisioned concurrency on /deliver (chosen)"
+  consequences: >
+    Supersedes ADR-005. Provisioned concurrency on /deliver is a condition,
+    not an optimisation: without it the SLO is missed. A load test at 10x
+    current volume is required before cutover. Retries and timeouts have to
+    be redone for an asynchronous runtime (see ADR-009). The architect's
+    objection on latency is recorded.
+ADR-007:
+  context: >
+    Alternative to ADR-006 put forward by the architect: keep Relay on EKS,
+    add autoscaling and accept the cost.
+  options:
+    - "Keep EKS with autoscaling"
+  consequences: >
+    Rejected on 2026-08-03: p95 is five times better than Lambda but monthly
+    cost is 1.7x and the platform team would have to become a Kubernetes team.
+ADR-008:
+  context: >
+    On Lambda the first design kept secrets in environment variables and in
+    CloudFormation parameters, visible to anyone with describe permissions.
+  options:
+    - "Environment variables encrypted with KMS"
+    - "Read from SSM Parameter Store at startup and cache in the instance (chosen)"
+  consequences: >
+    About 100 ms added to a cold start, hidden by provisioned concurrency.
+    Rotation becomes a parameter update plus a redeploy.
+ADR-009:
+  context: >
+    Gateway retries assume a synchronous backend. With Lambda, intake is
+    asynchronous and a gateway retry can enqueue the same delivery twice.
+  options:
+    - "Keep gateway retries and deduplicate in the handler"
+    - "Retries in SQS with a dead-letter queue after 5 attempts; gateway retries off on /deliver (chosen)"
+  consequences: >
+    Supersedes the Retries section of ADR-002. Exponential backoff comes from
+    the queue; the retry budget is no longer needed. The core lead's objection
+    (turning gateway retries off before the queue is load-tested) is recorded.
+ADR-010:
+  context: >
+    After ADR-006 the gateway timeout of 30 s was found never to apply: the
+    gateway's hard limit is 29 s. This ADR proposes a policy for Lambda
+    integrations.
+  options:
+    - "20 s on every route, with per-route overrides"
+  consequences: >
+    Proposed, not accepted. The live value was set by the team on 2026-08-24
+    at 25 s; this document still says 20 s.

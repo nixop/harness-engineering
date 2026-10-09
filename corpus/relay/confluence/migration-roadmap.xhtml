@@ -1,0 +1,18 @@
+<!-- Confluence storage format -->
+<!-- space: RELAY, title: 2026 migration roadmap, version: 4, last updated: 2026-06-20 by Marat Yusupov -->
+<ac:structured-macro ac:name="toc" ac:schema-version="1" />
+<h1>2026 migration roadmap</h1>
+<table><tbody>
+<tr><th>Wave</th><th>What</th><th>Status</th><th>Owner</th></tr>
+<tr><td>1</td><td>Infrastructure code: Terraform to CloudFormation, revised to a hybrid in April (ADR-004)</td><td>[DONE]</td><td>Pavel</td></tr>
+<tr><td>2</td><td>Front Relay with the API gateway (ADR-002); IAM auth; timeouts and retries as gateway policy</td><td>[DONE]</td><td>Pavel</td></tr>
+<tr><td>3</td><td>DocumentDB to DynamoDB single-table (ADR-003); backfill, dual write, cutover</td><td>[IN PROGRESS]</td><td>Denis</td></tr>
+<tr><td>4</td><td>Compute platform: EKS vs Lambda, two PoCs (ADR-005), decision end of July</td><td>[PENDING POC]</td><td>Timur</td></tr>
+</tbody></table>
+<h2>Dependencies</h2>
+<ul>
+<li>Wave 2 depended on the CloudFormation stack layout from wave 1 (gateway nested stack).</li>
+<li>Wave 3 cutover must not coincide with the wave 4 cutover week.</li>
+<li>Wave 4 changes how timeouts and retries work if Lambda is chosen.</li>
+</ul>
+<ac:structured-macro ac:name="warning" ac:schema-version="1"><ac:rich-text-body><p>The DynamoDB dry run (wave 3, phase 0) has no owner.</p></ac:rich-text-body></ac:structured-macro>
