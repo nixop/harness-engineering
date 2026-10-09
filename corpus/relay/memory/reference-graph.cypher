@@ -414,7 +414,8 @@ MERGE (n:PoC {key: "poc:poc-2"}) SET n.name = "PoC-2: Relay on EKS with autoscal
 MATCH (p:Person {key: "person:timur-aliev"}), (c:PoC {key: "poc:poc-2"}) MERGE (p)-[:OWNS {from: "2026-06-22"}]->(c);
 MATCH (c:PoC {key: "poc:poc-2"}), (m:Meeting {key: "meeting:2026-07-27:poc-review"}) MERGE (c)-[:REVIEWED_IN]->(m);
 MERGE (n:PoC {key: "poc:poc-3"}) SET n.name = "PoC-3: Relay on Lambda", n.from = "2026-06-22", n.to = "2026-07-24", n.report = "docs/poc-lambda-report.md", n.results = "{\"p95_warm_s\": 1.9, \"p95_cold_s\": 3.4, \"cold_start_s\": 1.2, \"monthly_cost_usd\": 3600, \"cost_delta_vs_eks_pct\": -41}";
-MATCH (p:Person {key: "person:ivan-melnik"}), (c:PoC {key: "poc:poc-3"}) MERGE (p)-[:OWNS {from: "2026-06-22"}]->(c);
+MATCH (p:Person {key: "person:sergey-belov"}), (c:PoC {key: "poc:poc-3"}) MERGE (p)-[:OWNS {from: "2026-06-22", to: "2026-07-13"}]->(c);
+MATCH (p:Person {key: "person:ivan-melnik"}), (c:PoC {key: "poc:poc-3"}) MERGE (p)-[:OWNS {from: "2026-07-13"}]->(c);
 MATCH (c:PoC {key: "poc:poc-3"}), (m:Meeting {key: "meeting:2026-07-27:poc-review"}) MERGE (c)-[:REVIEWED_IN]->(m);
 MERGE (n:Decision {key: "decision:iac:2026-01-12"}) SET n.id = "D01", n.text = "Migrate Relay infrastructure code from Terraform to CloudFormation, module by module, finishing by end of Q1", n.date = "2026-01-12", n.status = "superseded", n.source = "meetings/2026-01-12-weekly-sync.txt";
 MATCH (n:Decision {key: "decision:iac:2026-01-12"}), (t:Topic {key: "topic:iac"}) MERGE (n)-[:ABOUT]->(t);
@@ -630,7 +631,7 @@ MERGE (n:OpenItem {key: "openitem:compute:2026-08-03"}) SET n.id = "O6", n.text 
 MATCH (n:OpenItem {key: "openitem:compute:2026-08-03"}), (t:Topic {key: "topic:compute"}) MERGE (n)-[:ABOUT]->(t);
 MATCH (n:OpenItem {key: "openitem:compute:2026-08-03"}), (m:Meeting {key: "meeting:2026-08-03:architecture-committee"}) MERGE (n)-[:RAISED_IN]->(m);
 MATCH (p:Person {key: "person:ivan-melnik"}), (n:OpenItem {key: "openitem:compute:2026-08-03"}) MERGE (p)-[:OWNS {from: "2026-08-10"}]->(n);
-MERGE (n:OpenItem {key: "openitem:security:2026-09-07"}) SET n.id = "O7", n.text = "Rotate DocumentDB credentials before decommission", n.raised = "2026-09-07", n.status = "open", n.raised_again = ["2026-09-28"];
+MERGE (n:OpenItem {key: "openitem:security:2026-09-07"}) SET n.id = "O7", n.text = "Rotate DocumentDB credentials before decommission", n.raised = "2026-09-07", n.status = "open", n.raised_again = ["2026-09-28", "2026-10-05"];
 MATCH (n:OpenItem {key: "openitem:security:2026-09-07"}), (t:Topic {key: "topic:security"}) MERGE (n)-[:ABOUT]->(t);
 MATCH (n:OpenItem {key: "openitem:security:2026-09-07"}), (m:Meeting {key: "meeting:2026-09-07:security-review"}) MERGE (n)-[:RAISED_IN]->(m);
 MERGE (n:OpenItem {key: "openitem:iac:2026-02-23"}) SET n.id = "O8", n.text = "Route drift-detection alerts to on-call", n.raised = "2026-02-23", n.status = "closed", n.raised_again = [];

@@ -31,6 +31,8 @@ Regenerate after any change to `source/`:
 ```
 .venv/bin/python evals/memory/gen/gen_corpus.py corpus/relay
 .venv/bin/python evals/memory/gen/gen_questions.py corpus/relay
+.venv/bin/python evals/memory/gen/gen_claims.py corpus/relay      # claims for the vector layer
+.venv/bin/python evals/memory/chunk_corpus.py corpus/relay          # chunks for the vector layer
 ```
 
 ## Traps built in

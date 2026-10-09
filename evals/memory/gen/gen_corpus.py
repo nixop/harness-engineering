@@ -171,7 +171,12 @@ def graph(t, root, files, decs):
         if a.get("supersedes_section"): out.append(f"MATCH (a:ADR {{key: {q('adr:'+a['id'].lower())}}}), (b:ADR {{key: {q('adr:'+a['supersedes_section']['adr'].lower())}}}) MERGE (a)-[:SUPERSEDES {{section: {q(a['supersedes_section']['section'])}}}]->(b);")
     for pc in t["pocs"]:
         out.append(f"MERGE (n:PoC {{key: {q('poc:'+pc['id'])}}}) SET n.name = {q(pc['name'])}, n.from = {q(pc['period'][0])}, n.to = {q(pc['period'][1])}, n.report = {q(pc['report'])}, n.results = {q(json.dumps(pc['results']))};")
-        out.append(f"MATCH (p:Person {{key: {q('person:'+slug(names[pc['owner']]))}}}), (c:PoC {{key: {q('poc:'+pc['id'])}}}) MERGE (p)-[:OWNS {{from: {q(pc['period'][0])}}}]->(c);")
+        h = pc.get("handover")  # {to: person, since: date}: the PoC changes hands mid-way
+        if h:
+            out.append(f"MATCH (p:Person {{key: {q('person:'+slug(names[pc['owner']]))}}}), (c:PoC {{key: {q('poc:'+pc['id'])}}}) MERGE (p)-[:OWNS {{from: {q(pc['period'][0])}, to: {q(h['since'])}}}]->(c);")
+            out.append(f"MATCH (p:Person {{key: {q('person:'+slug(names[h['to']]))}}}), (c:PoC {{key: {q('poc:'+pc['id'])}}}) MERGE (p)-[:OWNS {{from: {q(h['since'])}}}]->(c);")
+        else:
+            out.append(f"MATCH (p:Person {{key: {q('person:'+slug(names[pc['owner']]))}}}), (c:PoC {{key: {q('poc:'+pc['id'])}}}) MERGE (p)-[:OWNS {{from: {q(pc['period'][0])}}}]->(c);")
         out.append(f"MATCH (c:PoC {{key: {q('poc:'+pc['id'])}}}), (m:Meeting {{key: {q(mkey[pc['reviewed']])}}}) MERGE (c)-[:REVIEWED_IN]->(m);")
     dkey = {}
     for d in t["decisions"]:

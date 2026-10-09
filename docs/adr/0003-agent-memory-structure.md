@@ -125,6 +125,49 @@ What the numbers say:
 
 Verdict: the decision stands with two amendments, now folded into the Decision section: dates are ISO strings everywhere, and the writer's output is validated against the people register, the term glossary and the key format before it reaches the stores. Revisit trigger (2) fired in part: agentic extraction quality is low, and the fix is a validation and merge step, not a different structure.
 
+## Validation 2 (2026-10-10, TASK-0005)
+
+The Ledger run above had 22 questions over 16 sources, too few to separate the modes. The Relay corpus (`corpus/relay/`) is generated from one `timeline.yaml`: 70 sources (34 RU meetings, 22 EN docs, 4 Confluence pages, 10 ADRs), 244 chunks, 30 decisions of which 7 superseded and 1 rejected, 8 open items, 13 ownership spans, 3 PoCs with numbers. 67 questions, 45 templated from the timeline and 22 hand-written, weighted towards chains, aggregates, dates and stale documents. Same three agents, same scripted memory (chunks plus 51 claims in the vector layer, reference graph in Neo4j), same 0/1/2 scale. The vector agent kept its lab-5 prompt throughout; the graph and both agents were run with four prompt versions, the last one on a corrected ground truth with all three agents. Traces, scores and notes under `evals/memory/runs/2026-10-10/relay-scripted*/`.
+
+| Memory | vector only | graph only | both |
+|---|---|---|---|
+| Ledger, scripted v2 (22 q) | 93% | 77% | 91% |
+| Relay, prompt v2 (lab-5 prompts with Relay keys) | 84% | 84% | 85% |
+| Relay, prompt v3 (full Cypher recipes per class, string dates, routing rule) | 84% | 87% | 88% |
+| Relay, prompt v4 (prefixed keys, full file paths, no clarifying questions, two vector calls for rationale) | 84% | 89% | 93% |
+| Relay, prompt v5 (open-item ids, raise counts, ADR and stale-fact two-step rules, rationale from ADR Context; two ground-truth defects fixed, all three agents re-run) | 82% | 90% | **95%** |
+
+By class, Relay prompt v5 (score %, vector / graph / both, n in brackets):
+
+| class | vector | graph | both |
+|---|---|---|---|
+| current (5) / history (5) / chain (2) | 100 / 90 / 100 | 100 / 100 / 100 | 100 / 100 / 100 |
+| owner now (3) / owner at date (3) / point in time (2) | 100 | 100 | 100 |
+| objector (8) / PoC basis (3) | 100 | 100 | 100 |
+| aggregate (8) | **56** | 100 | 94 |
+| unowned at date (3) | **50** | 100 | 100 |
+| stale docs at date (2) | **25** | 100 | 100 |
+| dependency (2) | **25** | 50 | 75 |
+| ADR status (4) | 100 | 88 | 88 |
+| fact (4) / crosslingual (2) | 88 / 100 | **62 / 75** | 88 / 100 |
+| contradiction (5) | 70 | 90 | 90 |
+| multi-hop (4) | 62 | **38** | 75 |
+| EN (35) / RU (32) | 84 / 80 | 91 / 89 | 96 / 94 |
+| wrong answers (score 0) | 4 | 2 | **0** |
+| tool calls / s per question | 3.0 / 4.5 | 1.6 / 5.1 | 1.9 / 4.8 |
+
+What the numbers say:
+
+1. **The hypothesis held where it was specific.** Vector-only scores 25–56% on aggregates, unowned items at a date, stale documents and dependencies: five to ten hits cannot enumerate, cannot filter by date, and staleness is spread over sixteen decision notes that no single query brings together. The graph answers those classes at 100% with one Cypher call. On the Ledger corpus these classes had one or two questions each and the gap was invisible.
+2. **The claim still carries most of the load.** Vector-only holds 82% because ownership spans, decision status and supersession are in the claim text; "who owned X on date D", point-in-time and chain questions are 100% for vector without any graph. The graph layer is not needed for structure that fits in one sentence, only for structure that spans many claims.
+3. **The combined mode was a prompt problem, not a storage problem.** With the lab-5 prompts (v2) both was one point above vector, because the agent treated an empty Cypher result as "not in memory" even when its own vector call had the answer, wrote `date()` against string dates, counted a missing OWNS edge as an owner, printed keys instead of decision text, dropped the `person:` prefix, looked documents up by short name and asked the user a question instead of answering. Each fix was a sentence in the prompt; v3 → v4 → v5 took both from 85% to 95% with zero wrong answers in 67. Nothing in the schema changed.
+4. **What the graph still cannot do is by design.** The graph-only misses that remain are document content (retry delays, runbook steps, PoC-report numbers) and rationale or positions that live in meeting prose; those are vector-layer facts, and the both agent at 95% is the graph plus exactly that. The one graph zero that is not by design (m13) came from a recipe of mine that ranked closed items by raise date instead of days open; corrected after the run.
+5. **Staleness is computed now.** The decision log question (m06), wrong in every run before v4, is answered by both and graph by the recipe "is document F current": compare `doc.updated` with decisions dated after it. The vector agent still says the log is current. The data was always there; the prompt had to ask for the comparison.
+6. **The eval found two ground-truth defects** (PoC-3 ownership in the timeline contradicted D16; a hand-written answer listed a raise date the timeline lacked) and one generator gap (claims were built by an inline script). Both fixed before v5: the timeline has a PoC `handover` field, `gen_claims.py` exists, and the reference graph and claims were regenerated.
+
+Verdict: the second layer earns its place on aggregate, unowned, stale-document and dependency questions (15 of 67), where vector-only scores 25–56% and the graph 100%, and the combined agent is thirteen points above vector overall with no wrong answer against four. The structure stands unchanged. Three amendments to the Decision's prompt contract, all applied in abox `releases/agent-memory.yaml` (memory-eval-graph, memory-eval-both): (a) an empty Cypher result is evidence of absence only in the graph-authoritative classes and never overrides a vector hit; (b) every templated question class has a named Cypher recipe in the prompt, including "owner at date", "unowned at date" with the CLOSES rule, "is document current", "longest-standing closed item" ranked by days open, and the two-step ADR-status and stale-fact rules; (c) keys are always prefixed, document files are full paths, open items and PoCs are addressed by id, and the agent states an assumption instead of asking the user. Revisit trigger (1) did not fire.
+
 ## Follow-ups
 
 - [TASK-0004](../../tasks/0004-agent-memory-corpus-and-eval.md): ingest, evaluate, fill in Validation.
+- [TASK-0005](../../tasks/0005-relay-corpus-scale-eval.md): Relay corpus at scale, Validation 2; prompt v5 for the memory-eval agents is in abox `feat/llmd-embeddings-lab6`.

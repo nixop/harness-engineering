@@ -43,7 +43,9 @@ def summarize(runs, scores_path):
                 x["calls"] += len([c for c in r["calls"] if "tool" in c]); x["secs"] += r["secs"]
     print(f"{'agent':<26} {'slice':<13} {'n':>3} {'score%':>7} {'correct':>8} {'wrong':>6} {'calls':>6} {'secs':>5}")
     for a, by in agg.items():
-        for lang in ("en", "ru", "fact", "temporal", "attribution", "contradiction", "unowned", "crosslingual", "all"):
+        fixed = ["en", "ru"]
+        slices = fixed + sorted(k for k in by if k not in fixed + ["all"]) + ["all"]
+        for lang in slices:
             x = by.get(lang)
             if x: print(f"{a:<26} {lang:<13} {x['n']:>3} {100*x['sum']/(2*x['n']):>6.0f}% {x['full']:>8} {x['zero']:>6} {x['calls']/x['n']:>6.1f} {x['secs']/x['n']:>5.1f}")
 

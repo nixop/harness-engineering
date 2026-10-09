@@ -136,7 +136,7 @@ open_items:
   - {id: O4, raised: "2026-05-18", meeting: m-2026-05-18, topic: database, text: "DocumentDB decommission date", owner: null, raised_again: ["2026-08-10", "2026-10-05"]}
   - {id: O5, raised: "2026-04-20", meeting: m-2026-04-20, topic: iac, text: "Terraform state cleanup for modules already moved to CloudFormation", owner: pavel, taken: "2026-04-27"}
   - {id: O6, raised: "2026-08-03", meeting: m-2026-08-03-arch, topic: compute, text: "Provisioned concurrency sizing for /deliver", owner: ivan, taken: "2026-08-10"}
-  - {id: O7, raised: "2026-09-07", meeting: m-2026-09-07-security, topic: security, text: "Rotate DocumentDB credentials before decommission", owner: null, raised_again: ["2026-09-28"]}
+  - {id: O7, raised: "2026-09-07", meeting: m-2026-09-07-security, topic: security, text: "Rotate DocumentDB credentials before decommission", owner: null, raised_again: ["2026-09-28", "2026-10-05"]}
   - {id: O8, raised: "2026-02-23", meeting: m-2026-02-23-incident, topic: iac, text: "Route drift-detection alerts to on-call", owner: lena, taken: "2026-03-02"}
 
 pocs:
@@ -144,7 +144,7 @@ pocs:
      results: {single_table_p99_read_ms: 4, multi_table_p99_read_ms: 11, single_table_cost_delta_pct: -38, documentdb_p99_read_ms: 9}}
   - {id: poc-2, name: "PoC-2: Relay on EKS with autoscaling", owner: timur, period: ["2026-06-22", "2026-07-24"], reviewed: m-2026-07-27-poc, report: docs/poc-eks-report.md,
      results: {p95_s: 0.4, monthly_cost_usd: 6100, ops_effort: "a second platform team"}}
-  - {id: poc-3, name: "PoC-3: Relay on Lambda", owner: ivan, period: ["2026-06-22", "2026-07-24"], reviewed: m-2026-07-27-poc, report: docs/poc-lambda-report.md,
+  - {id: poc-3, name: "PoC-3: Relay on Lambda", owner: sergey, handover: {to: ivan, since: "2026-07-13"}, period: ["2026-06-22", "2026-07-24"], reviewed: m-2026-07-27-poc, report: docs/poc-lambda-report.md,
      results: {p95_warm_s: 1.9, p95_cold_s: 3.4, cold_start_s: 1.2, monthly_cost_usd: 3600, cost_delta_vs_eks_pct: -41}}
 
 # ADRs are generated into corpus/relay/adr/ADR-NNN.md from these fields plus
