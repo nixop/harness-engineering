@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the claim records for the vector layer from memory/*.jsonl (decisions, open items, ownership spans).
 
-  gen_claims.py <corpus-root>   -> evals/memory/relay-claims.jsonl
+  gen_claims.py <corpus-root> [<out.jsonl>]   -> evals/memory/relay-claims.jsonl by default
 """
 import sys
 import json, re
@@ -28,5 +28,5 @@ for tp, spans in idx['spans'].items():
     for who, since, until in spans:
         text=f"# claim ownership | {tp} | {since}\n{names[who]} owns {tp} from {since}" + (f" to {until}." if until else " (current).")
         rows.append({"id": f"own-{tp}-{since}", "text": text, "metadata": {"file": "memory/decisions.jsonl", "source": "claim", "lang": "en", "date": since, "claim_id": f"ownership:{tp}:{since}", "kind": "ownership", "topic": tp, "status": "superseded" if until else "active", "owner": names[who]}})
-open('evals/memory/relay-claims.jsonl','w',encoding='utf-8').write("\n".join(json.dumps(r, ensure_ascii=False) for r in rows)+"\n")
+open(sys.argv[2] if len(sys.argv)>2 else 'evals/memory/relay-claims.jsonl','w',encoding='utf-8').write("\n".join(json.dumps(r, ensure_ascii=False) for r in rows)+"\n")
 print(len(rows), "claims (decisions + open items + ownership spans)")

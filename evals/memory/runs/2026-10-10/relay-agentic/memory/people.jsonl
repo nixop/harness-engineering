@@ -1,0 +1,11 @@
+{"key": "anna", "name": "Anna Sokolova", "role": "Relay core lead", "aliases": ["анна", "аня", "anna"], "team": "Relay core", "joined": null, "left": null}
+{"key": "pavel", "name": "Pavel Grishin", "role": "platform lead", "aliases": ["паша", "павел", "pavel"], "team": "Platform", "joined": null, "left": null}
+{"key": "marat", "name": "Marat Yusupov", "role": "product owner", "aliases": ["марат", "marat"], "team": "Architecture & product", "joined": null, "left": null}
+{"key": "lena", "name": "Lena Kim", "role": "SRE", "aliases": ["лена", "елена", "lena"], "team": "Platform", "joined": null, "left": null}
+{"key": "denis", "name": "Denis Orlov", "role": "data engineer", "aliases": ["денис", "denis"], "team": "Data", "joined": null, "left": null}
+{"key": "timur", "name": "Timur Aliev", "role": "architect", "aliases": ["тимур", "timur"], "team": "Architecture & product", "joined": null, "left": null}
+{"key": "olga", "name": "Olga Petrova", "role": "finance partner", "aliases": ["оля", "ольга", "olga"], "team": "Architecture & product", "joined": null, "left": null}
+{"key": "sergey", "name": "Sergey Belov", "role": "platform engineer", "aliases": ["серёжа", "сережа", "сергей", "sergey"], "team": "Platform", "joined": "2026-04-06", "left": null}
+{"key": "nikita", "name": "Nikita Frolov", "role": "backend engineer", "aliases": ["никита", "nikita"], "team": "Relay core", "joined": null, "left": "2026-06-01"}
+{"key": "yulia", "name": "Yulia Tarasova", "role": "security engineer", "aliases": ["юля", "юлия", "yulia"], "team": "Architecture & product", "joined": null, "left": null}
+{"key": "ivan", "name": "Ivan Melnik", "role": "serverless engineer", "aliases": ["ваня", "иван", "ivan"], "team": "Relay core", "joined": "2026-07-06", "left": null}

@@ -1,0 +1,182 @@
+{
+ "dkey": {
+  "A01": "decision:iac:2026-01-12",
+  "A02": "decision:iac:2026-01-19",
+  "A03": "decision:timeouts:2026-01-19",
+  "A04": "decision:cost:2026-01-26",
+  "A05": "decision:slo:2026-01-26",
+  "A06": "decision:iac:2026-02-02:a06",
+  "A07": "decision:iac:2026-02-02:a07",
+  "A08": "decision:cost:2026-02-09",
+  "A09": "decision:iac:2026-02-09",
+  "A10": "decision:iac:2026-02-23",
+  "A11": "decision:security:2026-02-23",
+  "A12": "decision:gateway:2026-03-02",
+  "A13": "decision:timeouts:2026-03-16",
+  "A14": "decision:gateway:2026-03-23",
+  "A15": "decision:iac:2026-03-30",
+  "A16": "decision:idempotency:2026-03-30",
+  "A17": "decision:retries:2026-03-30",
+  "A18": "decision:database:2026-04-06",
+  "A19": "decision:iac:2026-04-13",
+  "A20": "decision:idempotency:2026-04-13",
+  "A21": "decision:iac:2026-04-20",
+  "A22": "decision:database:2026-05-04:a22",
+  "A23": "decision:database:2026-05-04:a23",
+  "A24": "decision:database:2026-05-11",
+  "A25": "decision:gateway:2026-05-11",
+  "A26": "decision:idempotency:2026-05-11",
+  "A27": "decision:slo:2026-05-11",
+  "A28": "decision:database:2026-05-18",
+  "A29": "decision:idempotency:2026-05-18",
+  "A30": "decision:timeouts:2026-05-18",
+  "A31": "decision:iac:2026-06-01:a31",
+  "A32": "decision:iac:2026-06-01:a32",
+  "A33": "decision:idempotency:2026-06-01:a33",
+  "A34": "decision:idempotency:2026-06-01:a34",
+  "A35": "decision:retries:2026-06-01",
+  "A36": "decision:compute:2026-06-15",
+  "A37": "decision:retries:2026-06-15",
+  "A38": "decision:compute:2026-06-29:a38",
+  "A39": "decision:compute:2026-06-29:a39",
+  "A40": "decision:ownership:2026-06-29",
+  "A41": "decision:compute:2026-07-13:a41",
+  "A42": "decision:compute:2026-07-13:a42",
+  "A43": "decision:compute:2026-07-13:a43",
+  "A44": "decision:compute:2026-07-27:a44",
+  "A45": "decision:compute:2026-07-27:a45",
+  "A46": "decision:slo:2026-07-27",
+  "A47": "decision:timeouts:2026-07-27",
+  "A48": "decision:compute:2026-08-03",
+  "A49": "decision:retries:2026-08-24",
+  "A50": "decision:timeouts:2026-08-24",
+  "A51": "decision:retries:2026-09-07",
+  "A52": "decision:security:2026-09-07",
+  "A53": "decision:cost:2026-09-21",
+  "A54": "decision:cutover:2026-09-21",
+  "A55": "decision:cutover:2026-10-05:a55",
+  "A56": "decision:cutover:2026-10-05:a56",
+  "A57": "decision:database:2026-10-05",
+  "A58": "decision:slo:2026-10-05"
+ },
+ "spans": {
+  "iac": [
+   [
+    "pavel",
+    "2026-01-12",
+    null
+   ]
+  ],
+  "cost": [
+   [
+    "olga",
+    "2026-02-09",
+    null
+   ]
+  ],
+  "gateway": [
+   [
+    "pavel",
+    "2026-03-02",
+    null
+   ]
+  ],
+  "ownership": [
+   [
+    "marat",
+    "2026-04-27",
+    "2026-07-06"
+   ],
+   [
+    "ivan",
+    "2026-07-06",
+    null
+   ]
+  ],
+  "security": [
+   [
+    "yulia",
+    "2026-04-27",
+    null
+   ]
+  ],
+  "idempotency": [
+   [
+    "nikita",
+    "2026-04-27",
+    "2026-06-01"
+   ],
+   [
+    "anna",
+    "2026-06-01",
+    null
+   ]
+  ],
+  "database": [
+   [
+    "denis",
+    "2026-05-04",
+    "2026-05-04"
+   ],
+   [
+    "sergey",
+    "2026-05-04",
+    null
+   ]
+  ],
+  "timeouts": [
+   [
+    "pavel",
+    "2026-05-18",
+    "2026-08-24"
+   ],
+   [
+    "ivan",
+    "2026-08-24",
+    null
+   ]
+  ],
+  "retries": [
+   [
+    "nikita",
+    "2026-03-30",
+    "2026-06-01"
+   ],
+   [
+    "anna",
+    "2026-06-01",
+    "2026-09-07"
+   ],
+   [
+    "ivan",
+    "2026-09-07",
+    null
+   ]
+  ],
+  "compute": [
+   [
+    "marat",
+    "2026-06-08",
+    "2026-08-03"
+   ],
+   [
+    "timur",
+    "2026-06-15",
+    "2026-08-03"
+   ],
+   [
+    "ivan",
+    "2026-08-03",
+    null
+   ]
+  ],
+  "cutover": [
+   [
+    "lena",
+    "2026-09-21",
+    null
+   ]
+  ]
+ },
+ "files": {}
+}

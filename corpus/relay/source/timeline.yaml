@@ -1,4 +1,4 @@
-# Source of truth for the Relay corpus (lab 6). Everything under corpus/relay/
+# Source of truth for the Relay corpus (lab 5, part 2). Everything under corpus/relay/
 # except the hand-written prose in docs/ is generated from this file by
 # evals/memory/gen/*.py: ADRs, meeting transcripts (from meetings.yaml),
 # memory/decisions.jsonl, people.jsonl, glossary.jsonl, the reference graph
