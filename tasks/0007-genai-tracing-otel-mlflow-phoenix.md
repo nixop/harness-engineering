@@ -70,6 +70,15 @@ Exports of all of the above: `evals/o11y/runs/2026-10-13/export/` (see its READM
 
 From the laptop (`gh codespace ports forward 8080:8080 8090:8090 5000:5050 6006:6006 16686:16686`, remote:local; MLflow lands on local 5050 because macOS AirPlay already answers on 5000): the store and its UIs at http://localhost:8080 (`/jaeger/ui/`, `/grafana/`, `/chatbot/`, `/feature/` for flagd), MLflow at http://localhost:5050 (experiments `kagent` and `otel-demo`, Traces tab), Phoenix at http://localhost:6006 (login `admin@localhost`, the initial password is `PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD` in the `phoenix-secret` Secret of the `phoenix` namespace), kagent UI at http://localhost:8090.
 
+## Trying the demo as a product: first observations (o11y point of view)
+
+Started 2026-10-13 with the lab owner in the browser; continued in the next step.
+
+- **The telemetry stack is the first thing that breaks.** On the 4-core / 16 GiB node Prometheus was OOMKilled every few minutes at the umbrella chart's 400 Mi limit (171 k head series, 40 k of them `k6_browser_http_req_duration_milliseconds_bucket` from the load generator's own browser metrics), and Grafana answered 500 then 503 because its datasource and its own health check timed out. Fixes: Prometheus 1 Gi, the k6/Chromium browser traffic off (`K6_BROWSER_ENABLED=false`, `LOCUST_BROWSER_TRAFFIC_ENABLED=false`; nine Chromium processes were ~40% of a node), demo traces no longer fanned to Phoenix. Observation: a demo built to show observability needs more observability budget than the application it observes.
+- **Grafana Live does not work behind the demo's envoy.** `frontend-proxy` answers 403 to the websocket upgrade on `/grafana/api/live/ws` (Grafana itself answers 101 when called directly); its routing is baked into the image. Workaround: Grafana forwarded directly (`kubectl -n otel-demo port-forward svc/grafana 3000:80`, then http://localhost:3000/grafana/). Dashboards work either way, only the streaming refresh needs the socket.
+- **No logs backend.** OpenSearch is off for memory; the collector's logs pipeline ends in the `debug` exporter, so logs exist only as collector stdout. The APM dashboard's log panels stay empty; every "why" question has to be answered from traces.
+- **Metric cardinality is the demo's own noise.** The Prometheus `target_info` match the Grafana variable uses returns every service in the cluster (kagent, flux, helm-controller, agentgateway-llm...) because the demo's Prometheus scrapes the whole cluster through the OTLP receiver and annotations, not just the store.
+
 ## Known traps (confirmed)
 
 - Phoenix with auth drops unauthenticated OTLP silently; the collector logs nothing.
