@@ -1,0 +1,31 @@
+{
+  "experiments": [
+    {
+      "experiment_id": "2",
+      "name": "kagent",
+      "artifact_location": "mlflow-artifacts:/2",
+      "lifecycle_stage": "active",
+      "last_update_time": 1791838685671,
+      "creation_time": 1791838685671,
+      "workspace": "default"
+    },
+    {
+      "experiment_id": "1",
+      "name": "otel-demo",
+      "artifact_location": "mlflow-artifacts:/1",
+      "lifecycle_stage": "active",
+      "last_update_time": 1791838685518,
+      "creation_time": 1791838685518,
+      "workspace": "default"
+    },
+    {
+      "experiment_id": "0",
+      "name": "Default",
+      "artifact_location": "mlflow-artifacts:/0",
+      "lifecycle_stage": "active",
+      "last_update_time": 1791836850608,
+      "creation_time": 1791836850608,
+      "workspace": "default"
+    }
+  ]
+}

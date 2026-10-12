@@ -1,6 +1,6 @@
 # TASK-0006: abox from the `otel-demo` branch, kagent inside the observability stack, the lab-5 agents on top
 
-**Status:** Done (setup); report below
+**Status:** Done
 **Source:** lab 6 ("deploy abox from the otel branch, add the agents and the kagent setup into the o11y system")
 **Target:** abox branch `feat/otel-o11y` (from the author's `feat/otel-demo`), Codespace `abox-otel` (4 cores, 16 GiB, the maximum the account offers); harness-engineering for this report
 **Deliverable:** a running cluster with the OpenTelemetry demo (Astronomy Shop), MLflow, Phoenix and kagent, where every kagent agent run is traced into the same stack the demo app reports to, the built-in observability agent queries the demo's Prometheus and Grafana, and the lab-5 memory agents answer over the Relay memory again
@@ -28,7 +28,7 @@ The files stay in the tree; only the kustomizations changed.
 2. [x] Flux takeover as in TASK-0005: ResourceSet and input provider annotated `reconcile=disabled`, `releases`, `releases-crds` and the OCIRepository suspended, bundle applied with `kubectl apply -k` from the branch.
 3. [x] kagent in the o11y stack: `otel.tracing` on, OTLP/gRPC to the bridge collector; a `kagent` route (`service.name` matching `^kagent`) into its own MLflow experiment next to `otel-demo`.
 4. [x] Prometheus, Grafana and Jaeger of the demo enabled again; kagent-tools and grafana-mcp pointed at them; the built-in `observability-agent` answers PromQL questions over the demo.
-5. [x] Lab-5 agents (`memory-eval-vector/graph/both`, `memory-writer`, `memory-extractor`) with the bge-m3 embedder and the `relay-bge-m3` collection; Relay memory re-ingested (244 chunks, 51 claims, 656-line reference graph).
+5. [x] Lab-5 agents (`memory-eval-vector/graph/both`, `memory-writer`, `memory-extractor`) with the bge-m3 embedder and the `relay-bge-m3` collection; Relay memory re-ingested through the MCP servers with `evals/retrieval/mcp_tools.py` (244 chunks in 311 s, 51 claims in 58 s, 656 Cypher statements; 295 points, 138 nodes).
 
 ## Report
 
@@ -46,6 +46,8 @@ The files stay in the tree; only the kustomizations changed.
 | 6 | bridge collector drops every demo span with HTTP 404 from MLflow | exporter header named experiment id `3` from the author's cluster; a fresh MLflow has only `0` | experiments created through the REST API, ids rewritten |
 | 7 | grafana-mcp "forbidden: host not allowed", `observability-agent` fails to list tools | `mcp/grafana:latest` validates the Host header (loopback only by default); the controller calls it by Service name | `--allowed-hosts` with the in-cluster names; Grafana URL without `/api` |
 
+| 8 | new agent pods `CreateContainerConfigError` after switching to `apiKey: ""` | the Helm upgrade deleted the chart-owned `kagent-openai` Secret | Secret re-created out of band; it must exist before the upgrade next time |
+
 **Memory on the 16 GiB machine.** With the demo's backends on, 11.9 GB used and 4 GB available at idle; llm-d removed to make room for bge-m3. Jaeger 600 Mi, Prometheus 768 Mi, Grafana 256 Mi are the price of the agents having something to query.
 
 ## Acceptance
@@ -53,7 +55,7 @@ The files stay in the tree; only the kustomizations changed.
 - [x] `kubectl get helmrelease -A` all Ready; the demo reachable through `frontend-proxy` on 8080
 - [x] kagent traces visible in MLflow (experiment `kagent`) with LLM and tool spans
 - [x] `observability-agent` answers a metrics question over the demo's Prometheus through Grafana
-- [ ] lab-5 memory agents answer a Relay question over the re-ingested memory (in progress at the time of writing)
+- [x] lab-5 memory agents answer a Relay question over the re-ingested memory (`memory-eval-both`: gateway timeout chain 10 s → 30 s → 25 s with dates and sources; retries owner Ivan Melnik since 2026-09-07)
 
 ## Known traps (new in this task)
 
