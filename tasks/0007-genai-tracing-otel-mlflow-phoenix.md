@@ -68,7 +68,7 @@ Exports of all of the above: `evals/o11y/runs/2026-10-13/export/` (see its READM
 
 ## Looking at it
 
-From the laptop (`gh codespace ports forward 8080:8080 8090:8090 5000:5000 6006:6006 16686:16686`): the store and its UIs at http://localhost:8080 (`/jaeger/ui/`, `/grafana/`, `/chatbot/`, `/feature/` for flagd), MLflow at http://localhost:5000 (experiments `kagent` and `otel-demo`, Traces tab), Phoenix at http://localhost:6006 (login `admin@localhost`, the initial password is `PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD` in the `phoenix-secret` Secret of the `phoenix` namespace), kagent UI at http://localhost:8090.
+From the laptop (`gh codespace ports forward 8080:8080 8090:8090 5050:5000 6006:6006 16686:16686`; MLflow lands on 5050 because macOS AirPlay already answers on 5000): the store and its UIs at http://localhost:8080 (`/jaeger/ui/`, `/grafana/`, `/chatbot/`, `/feature/` for flagd), MLflow at http://localhost:5050 (experiments `kagent` and `otel-demo`, Traces tab), Phoenix at http://localhost:6006 (login `admin@localhost`, the initial password is `PHOENIX_DEFAULT_ADMIN_INITIAL_PASSWORD` in the `phoenix-secret` Secret of the `phoenix` namespace), kagent UI at http://localhost:8090.
 
 ## Known traps (confirmed)
 
