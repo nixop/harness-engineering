@@ -9,3 +9,5 @@ Self-contained briefs for an AI agent (or a human) to execute. Each task names i
 | [TASK-0003](0003-agentic-retrieval-comparison-abox.md) | Agentic retrieval comparison on abox: bge-m3 vs MiniLM (English-only, multilingual) via official qdrant MCP | lab assignment, ADR-0001 | Done, pending PR |
 | [TASK-0004](0004-agent-memory-corpus-and-eval.md) | Agent-memory corpus (Ledger), evaluation in three modes, ADR-0003; optional voice agent and avatar | lab 5 | Done, incl. voice agent and avatar |
 | [TASK-0005](0005-relay-corpus-scale-eval.md) | Relay corpus: 70 sources generated from a timeline, 67 multi-hop questions, does the graph layer earn its place | lab 5 (part 2), ADR-0003 | Done (incl. agentic ingest with validation) |
+| [TASK-0006](0006-abox-otel-stack-and-kagent-o11y.md) | abox from the `otel-demo` branch: OTel demo, MLflow, Phoenix; kagent traced into the stack, observability agent on the demo's Prometheus/Grafana, lab-5 agents on top | lab 6 | Done (setup) |
+| [TASK-0007](0007-genai-tracing-otel-mlflow-phoenix.md) | GenAI traces of the Astronomy Shop agent and our agents in Jaeger, MLflow and Phoenix; comparison of the three | lab 7 | Open |
