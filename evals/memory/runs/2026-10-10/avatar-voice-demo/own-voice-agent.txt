@@ -1,0 +1,5 @@
+voice-agent on http://localhost:8081 (model gemini-2.5-flash-native-audio-preview-12-2025, kagent http://172.18.0.5)
+2026-10-09T19:31:28.567Z gemini open
+2026-10-09T19:31:31.539Z tool ask_agent {"task":"What is the history of decisions regarding the DLQ alert threshold?","agent":"memory-eval-both"}
+2026-10-09T19:33:58.530Z browser closed
+2026-10-09T19:33:58.538Z gemini closed 

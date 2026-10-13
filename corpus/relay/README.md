@@ -1,4 +1,4 @@
-# Corpus: "Relay" webhook delivery service (lab 6)
+# Corpus: "Relay" webhook delivery service (lab 5, part 2)
 
 A synthetic corpus for agent memory, ten times the size of `corpus/ledger`
 and built so that multi-hop questions are the norm. Everything is invented.

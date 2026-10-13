@@ -1,0 +1,33 @@
+{
+  "trace": {
+    "trace_info": {
+      "trace_id": "tr-5520e0b1ac0068d0252816a59ea7a5da",
+      "trace_location": {
+        "type": "MLFLOW_EXPERIMENT",
+        "mlflow_experiment": {
+          "experiment_id": "2"
+        }
+      },
+      "request_time": "2026-10-12T21:43:53.854Z",
+      "execution_duration": "4.885s",
+      "state": "OK",
+      "trace_metadata": {
+        "mlflow.trace.tokenUsage": "{\"input_tokens\": 15476, \"output_tokens\": 225, \"total_tokens\": 15701, \"cache_read_input_tokens\": 0}",
+        "mlflow.trace.cost": "{\"input_cost\": 0.011607, \"output_cost\": 0.0010125, \"total_cost\": 0.012619499999999999}",
+        "mlflow.trace.session": "01a13212-7901-721d-9805-44c26cc21d53"
+      },
+      "tags": {
+        "k8s.pod.name": "kagent-controller-68f95b8777-k2hwz",
+        "k8s.node.name": "abox-worker2",
+        "service.namespace": "kagent",
+        "mlflow.artifactLocation": "mlflow-artifacts:/2/traces/tr-5520e0b1ac0068d0252816a59ea7a5da/artifacts",
+        "openinference.project.name": "kagent",
+        "service.instance.id": "kagent-controller-68f95b8777-k2hwz",
+        "service.name": "memory_eval_both",
+        "mlflow.trace.spansLocation": "TRACKING_STORE",
+        "service.version": "0.10.1",
+        "k8s.namespace.name": "kagent"
+      }
+    }
+  }
+}

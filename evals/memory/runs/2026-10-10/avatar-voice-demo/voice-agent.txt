@@ -1,0 +1,15 @@
+2026/10/09 17:50:47.261955 model gemini-2.5-flash-native-audio-preview-12-2025 via aistudio
+2026/10/09 17:50:47.262062 warning: proactive audio enabled but the AI Studio backend does not support it yet; it will be dropped
+2026/10/09 17:50:47.262067 live: affective dialog=true proactive audio=true voice=Kore
+2026/10/09 17:50:47.262072 mcp memory at http://127.0.0.1:3101/mcp
+2026/10/09 17:50:47.262076 a2a memory-eval-both from http://172.18.0.5/api/a2a/kagent/memory-eval-both/.well-known/agent-card.json
+2026/10/09 17:50:47.262079 a2a k8s-agent from http://172.18.0.5/api/a2a/kagent/k8s-agent/.well-known/agent-card.json
+2026/10/09 17:50:47.262399 serving voice UI on http://localhost:8081
+2026/10/09 17:56:54.036132 mcp memory: 1 tools
+2026/10/09 17:56:54.036155 a2a memory-eval-both: tool ask_memory_eval_both
+2026/10/09 17:56:54.036161 a2a k8s-agent: tool ask_k8s_agent
+2026/10/09 17:56:54.036166 live: 4 tools available: [ask_k8s_agent ask_memory_eval_both end_conversation vector_find]
+2026/10/09 17:56:57.072240 debug: tool ask_k8s_agent [function-call-13998683966291955069] called with {"message":"list pods in namespace kagent"}
+2026/10/09 17:56:57.105955 debug: tool ask_k8s_agent [function-call-13998683966291955069] answered in 34ms with {"error":"agent k8s-agent: failed to send HTTP request: Post \"http://kagent-controller.kagent.svc:8083/api/a2a/kagent/k8s-agent/\": dial tcp: lookup kagent-controller.kagent.svc on 127.0.0.53:53: no such host"}
+2026/10/09 17:56:57.106032 debug: turn answered 1 tool call(s) in 34ms
+2026/10/09 18:02:04.095640 session ended: read tcp 10.0.0.170:58880->172.217.112.4:443: use of closed network connection

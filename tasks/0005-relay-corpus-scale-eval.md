@@ -1,7 +1,7 @@
 # TASK-0005: Does the graph layer earn its place at scale? The Relay corpus
 
-**Status:** Done (step 7 optional, not run); prompt iterated to v5
-**Source:** lab 6; follow-up to TASK-0004, whose 22 questions over 16 sources were too small to separate the memory modes (vector 93%, graph 77%, both 91%)
+**Status:** Done; prompt iterated to v5, agentic path with validation run
+**Source:** lab 5, second part (the corpus scaled up); follow-up to TASK-0004, whose 22 questions over 16 sources were too small to separate the memory modes (vector 93%, graph 77%, both 91%)
 **Target:** harness-engineering for corpus, generators and results; abox branch `feat/llmd-embeddings-lab6` (from `lab5`) for cluster manifests; Codespace `abox-lab`
 **Deliverable:** `corpus/relay/` generated from a single source of truth, 67 questions dominated by multi-hop and aggregate classes, the same three agents and scale as lab 5 run on scripted memory, results in ADR-0003 (second Validation) and the Changelog
 
@@ -9,7 +9,7 @@
 
 ## What changed from lab 5
 
-| | Ledger (lab 5) | Relay (lab 6) |
+| | Ledger (lab 5, part 1) | Relay (lab 5, part 2) |
 |---|---|---|
 | Sources | 16 | 70 (34 meetings, 22 docs, 4 Confluence, 10 ADRs) |
 | Chunks | 70 | 244 |
@@ -34,7 +34,7 @@ Vector-only falls on chain, aggregate, owner-at-date, unowned-at-date and stale-
 4. [x] Chunker extended to ADRs; 244 chunks. 51 claims (30 decisions, 8 open items, 13 ownership spans).
 5. [x] Cluster: lab6 branch, `relay-bge-m3` collection, agents with Relay keys and recipes; scripted ingest; 67 × 3 runs, then graph and both re-run with prompt v3 and v4, and all three with v5 on the corrected ground truth.
 6. [x] Score by class with the same judge; graph_diff not needed (scripted only).
-7. [ ] Optional: agentic ingest with a validation step (ADR-0003 amendment 8) and compare against lab 5's 50%.
+7. [x] Agentic ingest with a validation step (ADR-0003 amendment 8): `memory-extractor` (tool-less, JSON) → `evals/memory/agentic_build.py` → stores; compared against lab 5's 50%.
 8. [x] ADR-0003 Validation 2, Changelog, this report.
 
 ## Report
@@ -60,4 +60,14 @@ Per class with v5 (vector / graph / both): aggregate 56 / 100 / 94, unowned at d
 
 **Ground-truth defects fixed before v5.** `timeline.yaml` gave PoC-3 to Ivan from 2026-06-22 although Ivan joins on 07-06 and D16 (07-13) moves the PoC from Sergey to Ivan: the generator now takes `handover: {to, since}` on a PoC and emits two OWNS spans. O7 is raised again on 2026-09-28 and 2026-10-05 (the 10-05 meeting mentions it). The claims for the vector layer were built by an inline script; it is now `evals/memory/gen/gen_claims.py`. One recipe defect of mine remains documented: the v5 "longest-standing closed item" recipe ranked by raise date and picked O8; v5.1 ranks by days open and was not re-run.
 
-**Not done.** Step 7 (agentic ingest with validation on Relay) was not run; it is the next experiment if the write path is revisited. Voice agent and avatar remain under TASK-0004 E–F.
+**Step 7, agentic memory with validation.** `memory-extractor` (abox, no tools, JSON only) read all 70 sources in 5 minutes; `agentic_build.py` validated and merged the proposals (`evals/memory/runs/2026-10-10/relay-agentic/validation-report.md`, `diff.md`) and emitted the memory in the reference schema; the scripted claims and graph were replaced in the cluster and the 67 questions re-run with prompt v5.2 (the ground-truth open-item ids removed from the prompt).
+
+| memory | vector only | graph only | both |
+|---|---|---|---|
+| Ledger, agentic, no validation (lab 5) | 50% | 39% | 50% |
+| Relay, scripted, prompt v5 | 82% | 90% | 95% |
+| Relay, agentic with validation, prompt v5.2 | 66% | 55% | 66% |
+
+Extraction quality against the ground truth: decision recall 0.90, precision 0.47 (58 for 30); open items 40 for 8; proposer/objector right on 23 of 27 matched decisions; 2 of 7 supersession edges right; ADR links 8 of 8; ownership spans 7 of 13 exact. The register-level defects of lab 5 are gone (one key per person, fixed topics, ISO dates, no self-loops, no invented labels); what remains is semantic over-extraction (progress reports as decisions, commitments as open items, the chair as proposer, loose "replaces" and "stale" references), and it hits the graph classes hardest (unowned at date 0%, stale docs 0–25%, chain 25%). Next step on the write path: a claim classifier and a reference check before the write. Details in `relay-agentic/scoring-notes.md` and ADR-0003 Validation 2, point 6.
+
+**Not done.** Voice agent and avatar remain under TASK-0004 E–F.

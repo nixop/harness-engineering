@@ -1,0 +1,33 @@
+{
+  "trace": {
+    "trace_info": {
+      "trace_id": "tr-eb16b6a871b7b392f60f16d93ebd9972",
+      "trace_location": {
+        "type": "MLFLOW_EXPERIMENT",
+        "mlflow_experiment": {
+          "experiment_id": "2"
+        }
+      },
+      "request_time": "2026-10-13T19:14:49.589Z",
+      "execution_duration": "43.642s",
+      "state": "OK",
+      "trace_metadata": {
+        "mlflow.trace.session": "01a136b0-66a4-7842-b12f-434f5fb901ea",
+        "mlflow.trace.cost": "{\"input_cost\": 0.0116145, \"output_cost\": 0.001206, \"total_cost\": 0.0128205}",
+        "mlflow.trace.tokenUsage": "{\"input_tokens\": 15486, \"output_tokens\": 268, \"total_tokens\": 15754, \"cache_read_input_tokens\": 0}"
+      },
+      "tags": {
+        "service.version": "0.2.0",
+        "service.namespace": "kagent",
+        "openinference.project.name": "kagent",
+        "service.instance.id": "kagent-controller-95bf667c8-t2np7",
+        "k8s.pod.name": "kagent-controller-95bf667c8-t2np7",
+        "k8s.namespace.name": "kagent",
+        "service.name": "voice-agent",
+        "mlflow.artifactLocation": "mlflow-artifacts:/2/traces/tr-eb16b6a871b7b392f60f16d93ebd9972/artifacts",
+        "mlflow.trace.spansLocation": "TRACKING_STORE",
+        "k8s.node.name": "abox-worker"
+      }
+    }
+  }
+}
