@@ -14,3 +14,12 @@ Evidence for TASK-0007. Cluster from TASK-0006 (abox `feat/otel-o11y`, Codespace
 How the traces were produced: `memory-eval-both` through A2A on the gateway (`/tmp/lab/ask.py` in the Codespace, the same JSON-RPC `message/send` as every eval in this repo); the demo agent through `POST /prompt` on its Service (port 8010), which is what the chatbot UI calls.
 
 Jaeger and Phoenix exports contain the full span attributes (prompts, tool arguments, Cypher). MLflow's REST trace object carries the trace-level aggregates (`mlflow.trace.tokenUsage`, `mlflow.trace.cost`, `mlflow.trace.session`); its spans are served to the UI from the tracking store and are not in this export.
+
+## export2 (after the cluster rebuild the same day)
+
+| File | Trace |
+|---|---|
+| `export2/jaeger-voice-agent-to-memory-eval-both.json`, `export2/mlflow-…`, `export2/phoenix-…` | our instrumented `apps/voice-agent` asking `memory-eval-both` about the 2026-08-24 decisions: `eb16b6a871b7b392f60f16d93ebd9972`, 13 spans, services `voice-agent` + `kagent-controller` + `memory_eval_both`, in all three backends |
+| `export2/jaeger-kagent-retrieval-agent.json` | kagent `retrieval-agent` over the Relay vector store: `d04f43f7ea468c1ffb5bb8a2cc74fa27`, 10 spans |
+| `export2/jaeger-astronomy-shop-agent-2.json` | the demo's LangGraph agent on OpenAI, "Which telescope is best for viewing planets?": `9f56ba009242fd4d821cdf3c58324142`, 22 spans |
+| `export2/jaeger-store-checkout-payment-failure.json` | a store checkout during the `paymentFailure` 50% injection: `7b650a1bd758a47bd4ea8a11507c8327`, 50 spans, the exception chain payment → checkout → frontend |
