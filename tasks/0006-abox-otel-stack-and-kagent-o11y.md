@@ -63,3 +63,15 @@ The files stay in the tree; only the kustomizations changed.
 - `pkill -f <pattern>` inside an `ssh` command kills the ssh session when the pattern appears in the command line itself; the script behind it survives only if it was started with `setsid nohup`.
 - `cloud-provider-kind` must be restarted after any dockerd restart, or the LoadBalancer IP of agentgateway stops routing.
 - mcp-grafana's `GRAFANA_URL` is the base URL; the chart default with `/api` is for an older image.
+
+## Rebuilding the lab from nothing (Codespace deleted 2026-10-13)
+
+Everything needed is in git; only the secrets are not. Order:
+
+1. Codespace: `gh codespace create -R nixop/abox -b feat/otel-o11y -m standardLinux32gb --idle-timeout 4h` (the largest machine the account offers; 2-core is too small). Codespaces secrets `OPENAI_API_KEY`, `GOOGLE_API_KEY` (and `RUNWAYML_API_SECRET` for the avatar) must be enabled for `nixop/abox`; they appear in `/workspaces/.codespaces/shared/user-secrets-envs.json`.
+2. Copy the memory artifacts from this repo into the Codespace at `/workspaces/lab-data/`: `evals/memory/relay-chunks.jsonl`, `evals/memory/relay-claims.jsonl`, `corpus/relay/memory/reference-graph.cypher`, `evals/retrieval/mcp_tools.py`, plus `ask.py` (the A2A helper; a copy lives in the abox branch next to the restore script if missing, or take the `ask()` function from `evals/memory/agentic_ingest.py`). From the laptop: `tar czf - <files> | gh codespace ssh -c <name> -- 'mkdir -p /workspaces/lab-data && cd /workspaces/lab-data && tar xzf -'`.
+3. In the Codespace: `cd /workspaces/abox && nohup bash scripts/lab-restore.sh > /tmp/lab-restore.log 2>&1 &` and watch the log (~13 min). The script moves Docker's data-root to `/tmp/docker`, runs `make run`, takes reconciliation over from Flux, creates the out-of-band Secrets, applies `releases/`, creates the MLflow experiments, the Phoenix system key, re-ingests the Relay memory, starts the port-forwards and the traced voice agent.
+4. On the laptop: `gh codespace ports forward 8080:8080 8090:8090 5000:5050 6006:6006 16686:16686 3000:3000 -c <name>` (remote:local; MLflow on 5050 because macOS AirPlay owns 5000). Phoenix UI login `admin@localhost` with the initial password from the `phoenix-secret` Secret, which Phoenix asks to replace at the first login.
+5. Known one-offs the script already handles: OpenTofu installer needs `--opentofu-version`; the bundle must be applied twice (kagent CRDs); Helm install timeouts are force-reconciled; `kagent-openai` is created before the chart that references it.
+
+Branches: abox `feat/otel-o11y` (manifests, apps, restore script), harness-engineering `main` after PR #1 (this report, TASK-0007, exports).
