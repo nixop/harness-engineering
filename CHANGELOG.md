@@ -14,6 +14,7 @@ All notable changes to this lab are recorded here. The format follows [Keep a Ch
 - TASK-0005: Relay corpus `corpus/relay/` generated from `source/timeline.yaml` (34 meetings, 26 docs, 10 ADRs, 30 decisions, 8 open items, 3 PoCs) with `evals/memory/gen/`; 67 questions dominated by multi-hop and aggregate classes. ([tasks/0005](tasks/0005-relay-corpus-scale-eval.md))
 - TASK-0006: abox deployed from the author's `otel-demo` branch (OpenTelemetry demo, MLflow with a bridge collector, Phoenix) on a new Codespace, kagent traced into the same stack, the built-in observability agent on the demo's Prometheus and Grafana, the lab-5 memory agents and the Relay memory on top. ([tasks/0006](tasks/0006-abox-otel-stack-and-kagent-o11y.md))
 - TASK-0007: GenAI traces in three backends (Jaeger, MLflow, Phoenix) for the Astronomy Shop agent and our agents, and the comparison. ([tasks/0007](tasks/0007-genai-tracing-otel-mlflow-phoenix.md))
+- TASK-0008: plan for scoring our agents from their traces with agentevals-go (the Go port of agentevals): what the tool is, which metrics work without a GCP project, how our Relay ground truth becomes its eval sets, the live `serve` and the MCP routes. Not started; parked until a project needs it. ([tasks/0008](tasks/0008-agentevals-go-trace-based-evaluation.md))
 - ADR template and index, task index.
 
 ### Results
