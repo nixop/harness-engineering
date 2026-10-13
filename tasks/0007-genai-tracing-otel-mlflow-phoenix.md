@@ -79,6 +79,29 @@ Started 2026-10-13 with the lab owner in the browser; continued in the next step
 - **No logs backend.** OpenSearch is off for memory; the collector's logs pipeline ends in the `debug` exporter, so logs exist only as collector stdout. The APM dashboard's log panels stay empty; every "why" question has to be answered from traces.
 - **Metric cardinality is the demo's own noise.** The Prometheus `target_info` match the Grafana variable uses returns every service in the cluster (kagent, flux, helm-controller, agentgateway-llm...) because the demo's Prometheus scrapes the whole cluster through the OTLP receiver and annotations, not just the store.
 
+### Fault scenario: payment fails for half the orders (2026-10-13, after the rebuild)
+
+Baseline (span metrics over 5 min): ~23 calls/s across the store, 0 errors/s, frontend p95 44 ms. One order placed through the store API (`POST /api/cart`, `POST /api/checkout`) took 0.48 s and produced trace `019583769bbb332e022813987fd78cf0`: 47 spans over 11 services, 12 of them in `checkout`, 3 round trips to `flagd` for feature flags.
+
+`paymentFailure` set to `50%` (written straight into flagd's file through the `flagd-ui` container; the UI's `POST /feature/api/write-to-file` answers 400 to the file as `read-file` returns it, the UI's own save format is different), twelve orders placed, metrics read after 90 s, then the flag reverted:
+
+| Where | What it showed |
+|---|---|
+| Span metrics (Prometheus, `traces_span_metrics_calls_total{status_code="STATUS_CODE_ERROR"}`) | errors appear within one scrape interval on every hop of the chain: `payment charge` 0.054/s, `checkout PlaceOrder` 0.05/s, `frontend POST /api/checkout` 0.05/s, `frontend-proxy ingress` 0.079/s. The cause is readable from the service with the deepest erroring span, but only if you already know the call graph. |
+| Business metric (`demo_payment_transactions_total`) | kept counting 0.23/s: it counts successful charges and has no failure counterpart, so the business view says nothing is wrong. |
+| Jaeger, trace `7b650a1bd758a47bd4ea8a11507c8327` (50 spans) | the complete causal chain in one page: `payment charge` records an exception event "Payment request failed. Invalid token. demo.user_context.loyalty_level…", `checkout PlaceOrder` wraps it ("failed to charge card"), `frontend` re-raises it as gRPC `13 INTERNAL`, `frontend-proxy` marks the ingress span. The flag attribute on the payment span says why: the span carries the user's loyalty level the fault is keyed on. |
+| Grafana (Spanmetrics dashboard) | error-rate panels per service turn red for the same four services; latency unchanged, so the failure mode is "fast error", not timeout. |
+| Recovery | errors stop within one scrape interval of the revert; nothing lingers. |
+
+Observations and questions for a real OTel rollout:
+
+1. **Traces answer "why", metrics only "where".** The exception event on the payment span is the one piece of information that explains the failure; span metrics localise it to a service and operation but every hop reports the same error, so the error rate alone does not say which service is the cause.
+2. **A silent error was already there before the injection.** `checkout → cart EmptyCart` fails at ~0.2/s ("Can't access cart storage … Wasn't able to connect to redis") while the order itself returns 200: the user never sees it, span metrics and Jaeger do. Question for a project: which background steps of a transaction are allowed to fail silently, and who watches that rate?
+3. **Business metrics need a failure dimension.** A success-only counter (`demo_payment_transactions_total`) is blind to this incident; the failure signal lives only in the span status.
+4. **Feature flags are part of the trace.** Every checkout spends 3 spans on flagd; the fault itself is a flag evaluation on the payment span. The same mechanism that injects faults also records them, which is the demo's point and a good pattern.
+5. **No logs backend means no "what else happened".** With OpenSearch off, the only narrative is the exception events inside spans; the cart's Valkey problem has no log line to correlate with.
+6. **The cost of the signal.** The store at ~23 calls/s produced 171 k head series in Prometheus and 1 000+ traces per minute into every backend that listened; the backends, not the store, were the first thing to fall over on a 16 GiB node.
+
 ## Known traps (confirmed)
 
 - Phoenix with auth drops unauthenticated OTLP silently; the collector logs nothing.
